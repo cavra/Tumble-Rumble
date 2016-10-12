@@ -1,4 +1,4 @@
-# CSCE - 315 Group Project 2 - RumbleTumble
+# CSCE - 315 Group Project 2 - Tumble Rumble
 
 ## Project Summary
 
