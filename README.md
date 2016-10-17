@@ -18,3 +18,11 @@ Reed Spivey<br>
 
 Met and discussed ideas in 315 Lab<br/>
 Decided on Tumble Rumble <br/>
+
+**10/12/16**
+
+Met and discussed rules and storyboards in 315 Lab<br/>
+
+**10/16/16**
+
+All: Worked on design documents
