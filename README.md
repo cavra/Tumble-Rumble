@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-**RDBMS** is the second group programming assignment for CSCE 315 at Texas A&M
+**RDBMS** is the second group programming assignment for CSCE 315 at Texas A&M. [Here](https://docs.google.com/a/tamu.edu/document/d/1BeEMBn4f1MeWA3jVzjUNd0Jw-hCdaoTh7SGW8L-iiic/edit?usp=sharing) is a link to our Design Documents
 
 ## Members
 Jason Alonzo<br>
@@ -25,4 +25,11 @@ Met and discussed rules and storyboards in 315 Lab<br/>
 
 **10/16/16**
 
+Met at Annex
 All: Worked on design documents
+
+**10/17/16**
+
+Met in 315 Lab<br/>
+Met at Annex from 1-3
+Jason Alonzo: Worked on design documents
