@@ -27,6 +27,7 @@ Met and discussed rules and storyboards in 315 Lab<br/>
 
 Met at Annex
 All: Worked on design documents
+Brandon: Wrote storyboard, scenarios, and made some character prototypes
 
 **10/17/16**
 
