@@ -32,5 +32,5 @@ Brandon: Wrote storyboard, scenarios, and made some character prototypes
 **10/17/16**
 
 Met in 315 Lab<br/>
-Met at Annex from 1-3
+Met at Annex from 1-3<br/>
 Jason Alonzo: Worked on design documents
