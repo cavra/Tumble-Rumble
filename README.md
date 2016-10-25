@@ -7,8 +7,8 @@
 ## Members
 Jason Alonzo<br>
 Cory Avra<br>
-Brandon Gann<br>
 Reed Spivey<br>
+Brandon Gann<br>
 
 ## Development Log
 
