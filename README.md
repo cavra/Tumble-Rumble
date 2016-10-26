@@ -38,3 +38,12 @@ Jason Alonzo: Worked on design documents
 **10/19/16**
 
 Met in 315 Lab<br>
+
+**10/24/16**
+
+Met in 315 Lab, performed 2 sessions for user study data
+
+**10/26/16**
+
+Met in 315 Lab<br>
+Met in Annex from 1-3
