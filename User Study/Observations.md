@@ -14,7 +14,7 @@ Our light-weight prototype consisted of several general sketches of various game
 - 4) What is your least favorite part of the game?
 - 5) What are some changes you want to make to the game?
 
-Each participant's response to the questions were recorded and are visually represented in our revised IdeaMache, which can be found [here](www.google.com). For the most part, analyzing our data was easy as the first couple of questions have binary answers. The last three, however, are open-ended and allowed us to receive the constructive feedback we needed. However, because they were open-ended, we received a couple of fairly vague answers. These answers were expected, and so we decided beforehand not to include them in our analysis. On the other hand, we did receive a few specific answers. These answers were used in constructing the qualitative analysis, whereas the all the answers to the first 2 questions were used to construct the quantiative analysis
+Each participant's response to the questions were recorded and are visually represented in our revised IdeaMache, linked below. For the most part, analyzing our data was easy as the first couple of questions have binary answers. The last three, however, are open-ended and allowed us to receive the constructive feedback we needed. However, because they were open-ended, we received a couple of fairly vague answers. These answers were expected, and so we decided beforehand not to include them in our analysis. On the other hand, we did receive a few specific answers. These answers were used in constructing the qualitative analysis, whereas the all the answers to the first 2 questions were used to construct the quantiative analysis
 
 ## Data:
 
