@@ -10,6 +10,10 @@ Cory Avra<br>
 Reed Spivey<br>
 Brandon Gann<br>
 
+## Change Logs
+
+Our Change log to our first deliverable can be found [here](https://docs.google.com/document/d/1Y1uz1-Le6BsaAkqbf8q4dkl5UrCj5hp1TVaS25fI0oo/edit?usp=sharing)
+
 ## Development Log
 
 #### Deliverable 1: Design Documents
