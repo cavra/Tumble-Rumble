@@ -12,7 +12,9 @@ Brandon Gann<br>
 
 ## Change Logs
 
-Our Change log to our first deliverable can be found [here](https://docs.google.com/document/d/1Y1uz1-Le6BsaAkqbf8q4dkl5UrCj5hp1TVaS25fI0oo/edit?usp=sharing)
+Our D1 Change Log can be found [here](https://docs.google.com/document/d/1Y1uz1-Le6BsaAkqbf8q4dkl5UrCj5hp1TVaS25fI0oo/edit?usp=sharing). 
+
+Our D2 Change Log can be found [here](https://docs.google.com/document/d/1d_HoEv8TZBUlxYFplItrYo7T-0kKFEhVWg7cVKMF-rs/edit?usp=sharing).
 
 ## Development Log
 
