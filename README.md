@@ -15,22 +15,26 @@ Brandon Gann - ???<br>
 
 ## Helpful Links
 
-### General Links
+### General
 
-[Here](https://docs.google.com/document/d/187NokR-hFrJIfcoUGKmY0hIjT9iMJpOtQUEcyDtSB7k/edit) is a link to the guidelines for this project.
+[Project Guidelines](https://docs.google.com/document/d/187NokR-hFrJIfcoUGKmY0hIjT9iMJpOtQUEcyDtSB7k/edit)
 
-[Here](https://docs.google.com/document/d/1GpgrooDESPburxhSry0y4EyLmK5WqAE1mVtQtj3yDZ8/edit?usp=sharing) is a link to our Development Log.
+[Development Log](https://docs.google.com/document/d/1GpgrooDESPburxhSry0y4EyLmK5WqAE1mVtQtj3yDZ8/edit?usp=sharing) 
 
-### Deliverable 1 Links
+### Deliverable 1 (Interactive Game Design)
 
-[Here](https://docs.google.com/document/d/1BeEMBn4f1MeWA3jVzjUNd0Jw-hCdaoTh7SGW8L-iiic/edit?usp=sharing) is a link to our Design Documents.
+[Google Doc](https://docs.google.com/document/d/1BeEMBn4f1MeWA3jVzjUNd0Jw-hCdaoTh7SGW8L-iiic/edit?usp=sharing)
 
-[Here](https://ideamache.ecologylab.net/v/UpeGkSj1X9/) is a link to out Design Documents' IdeaMache.
+[IdeaMache](https://ideamache.ecologylab.net/v/UpeGkSj1X9/)
 
-[Here](https://docs.google.com/document/d/1Y1uz1-Le6BsaAkqbf8q4dkl5UrCj5hp1TVaS25fI0oo/edit?usp=sharing) is a link to our D1 Change Log.
+[Change Log](https://docs.google.com/document/d/1Y1uz1-Le6BsaAkqbf8q4dkl5UrCj5hp1TVaS25fI0oo/edit?usp=sharing)
 
-### Deliverable 2 Links
+### Deliverable 2 (Formative User Study)
 
-[Here](https://docs.google.com/document/d/1WzDQdtBhk-w26gtdeWK18lK4jFh9TFa8f3fjVOdm3j8/edit?usp=sharing) is a link to our User Study results.
+[Google Doc](https://docs.google.com/document/d/1WzDQdtBhk-w26gtdeWK18lK4jFh9TFa8f3fjVOdm3j8/edit?usp=sharing)
 
-[Here](https://docs.google.com/document/d/1d_HoEv8TZBUlxYFplItrYo7T-0kKFEhVWg7cVKMF-rs/edit?usp=sharing) is a link to our D2 Change Log.
+[Change Log](https://docs.google.com/document/d/1d_HoEv8TZBUlxYFplItrYo7T-0kKFEhVWg7cVKMF-rs/edit?usp=sharing)
+
+### Delierable 3 (Functional Specification)
+
+[Google Doc]()
