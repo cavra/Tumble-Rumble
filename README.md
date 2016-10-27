@@ -3,7 +3,7 @@
 
 ## Project Summary
 
-**Multiplayer Game** is the second programming assignment for CSCE 315 at Texas A&M.
+This group project is the second programming assignment for CSCE 315 at Texas A&M. It is a multiplayer game developed in HTML5. For more details, see the links below. 
 
 
 ## Members
