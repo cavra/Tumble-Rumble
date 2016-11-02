@@ -10,12 +10,6 @@ TumbleRumble.lobby.prototype = {
 
 	update: function() {
 
-
 	},
-
-	start_game: function(pointer) {
-	
-		this.state.start('selection');
-	}
 
 };

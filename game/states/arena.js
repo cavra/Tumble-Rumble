@@ -8,15 +8,8 @@ TumbleRumble.arena.prototype = {
 
 	},
 	
-
 	update: function() {
 
-
 	},
-
-	start_game: function(pointer) {
-	
-
-	}
 
 };

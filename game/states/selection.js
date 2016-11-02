@@ -10,12 +10,6 @@ TumbleRumble.selection.prototype = {
 
 	update: function() {
 
-
 	},
-
-	start_game: function(pointer) {
-	
-		this.state.start('arena');
-	}
 
 };

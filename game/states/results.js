@@ -10,11 +10,6 @@ TumbleRumble.results.prototype = {
 
 	update: function() {
 
-
 	},
-
-	start_game: function(pointer) {
-	
-	}
 
 };

@@ -10,7 +10,7 @@ Cory Avra - 423005091<br>
 Reed Spivey - 623004372<br>
 Brandon Gann - 823000358<br>
 
-## Build Instructions
+## Localhost Instructions
 
 This game can be run locally through python by navigating to its directory and entering this into the command prompt:
 	

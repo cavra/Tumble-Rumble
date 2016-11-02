@@ -10,11 +10,6 @@ TumbleRumble.settings.prototype = {
 
 	update: function() {
 
-
 	},
-
-	start_game: function(pointer) {
-	
-	}
 
 };
