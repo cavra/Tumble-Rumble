@@ -70,8 +70,11 @@ TumbleRumble.preloader.prototype = {
 		
 		//tilemaps
 		this.load.tilemap('map_level_0', 'game/assets/tilemaps/arena_0/arena_0.json', null, Phaser.Tilemap.TILED_JSON);
-		this.load.image('tiles_spritesheet', 'game/assets/tilemaps/arena_0/tiles_spritesheet.png');
+		this.load.image('tiles_spritesheet0', 'game/assets/tilemaps/arena_0/tiles_spritesheet.png');
 		
+		this.load.tilemap('arena_1', 'game/assets/tilemaps/arena_1/arena_1.json', null, Phaser.Tilemap.TILED_JSON);
+		this.load.image('tiles_spritesheet1', 'game/assets/tilemaps/arena_1/tiles_spritesheet.png');
+
 	},
 	
 	create: function() {

@@ -43,7 +43,7 @@ TumbleRumble.welcome.prototype = {
 	start_game: function(pointer) {
 	
 		this.music.stop();
-		this.state.start('lobby');
+		this.state.start('arena');
 	}
 
 };
