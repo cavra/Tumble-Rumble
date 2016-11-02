@@ -20,6 +20,7 @@ TumbleRumble.preloader.prototype = {
 
 		// Game Objects
 		this.preload_arenas();
+		this.preload_player();
 
 	},
 	
@@ -77,6 +78,12 @@ TumbleRumble.preloader.prototype = {
 
 	},
 	
+	preload_player: function() {
+
+		this.load.image('tumbleweed', 'game/assets/textures/player/tumbleweed.png');
+	
+	},
+
 	create: function() {
 
 		//once everything has been preloaded, stop cropping the preload bar
