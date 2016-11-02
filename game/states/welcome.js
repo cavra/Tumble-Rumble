@@ -1,9 +1,5 @@
 TumbleRumble.welcome = function(game) {
 
-	this.music = null;
-	this.play_button = null;
-	this.play_rectangle = null;
-
 };
 
 TumbleRumble.welcome.prototype = {

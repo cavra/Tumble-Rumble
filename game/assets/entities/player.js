@@ -17,20 +17,18 @@ Player.prototype.create = function() {
 
 Player.prototype.update = function() {
 
-    console.log("Put a message here.");
-
-    player.body.velocity.x = 200;
+    player.body.velocity.x = 0;
     player.body.velocity.y = 0;
 
     if (cursors.left.isDown)
     {
         player.body.velocity.x = -200;
-        player.scale.x = 1;
+        player.scale.x = 0.3;
     }
     else if (cursors.right.isDown)
     {
         player.body.velocity.x = 200;
-        player.scale.x = -1;
+        player.scale.x = -0.3;
     }
 
     if (cursors.up.isDown)

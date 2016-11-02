@@ -6,17 +6,17 @@ TumbleRumble.boot.prototype = {
 
     init: function() {
 
+    	this.clearGameCache();
+
         this.input.maxPointers = 1;
 
         // toggles auto-pause if user changes focus
-        // this.stage.disableVisibilityChange = true;
+        this.stage.disableVisibilityChange = true;
+        this.game.stage.disableVisibilityChange = true;
 
-        if (this.game.device.desktop)
-        {
-            // this.scale.pageAlignHorizontally = true; //bug: causes canvas to be off-centered
+        if (this.game.device.desktop) {
         }
-        else // We're on mobile
-        {
+        else {
             this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
             this.scale.setMinMax(100, 60, 1000, 600);
             this.scale.forceLandscape = true;
@@ -26,6 +26,12 @@ TumbleRumble.boot.prototype = {
         }
 
     },
+
+	clearGameCache: function() {
+	    this.game.cache = new Phaser.Cache(this.game);
+	    this.game.load.reset();
+	    this.game.load.removeAll();
+	},
 
     preload: function() {
 

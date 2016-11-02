@@ -21,17 +21,18 @@ TumbleRumble.arena = function(game) {
     //  or you'll over-write the world reference.
 };
 
-var player;
-
 TumbleRumble.arena.prototype = {
 
-	create: function () {
+	create: function() {
+
+		this.music = this.add.audio('welcome_music', 0.5, true);
+		this.music.play();
 
         this.buildWorld();
     	this.createPlayer();
 	},
 
-    buildWorld: function () {
+    buildWorld: function() {
 
         //the world
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -55,17 +56,18 @@ TumbleRumble.arena.prototype = {
 
     },
 
-    createPlayer: function () {
+    createPlayer: function() {
 
         //create an instance for the player
-        player = new Player(this.game); 
+        this.player = new Player(this.game); 
         
         //create the player
-        player.create();
+        this.player.create();
     },
 
-	update: function () {
-	    player.update();
+	update: function() {
+		
+		this.player.update();
 	},
 
 };
