@@ -41,18 +41,21 @@ TumbleRumble.arena.prototype = {
         this.background = this.add.tileSprite(0, 0, 1000, 600, 'welcome_background');
 
         //tilemap
-        map = this.game.add.tilemap('arena_1');
+        map = this.game.add.tilemap('sample_arena');
 
         //the first parameter is the tileset name as specified in Tiled
         //the second is the key to the asset
-        map.addTilesetImage('Wood', 'tiles_spritesheet1');
+        map.addTilesetImage('sample_1', '..\/..\/..\/..\/platformerGraphicsDeluxe_Updated\/Tiles\/tiles_spritesheet.png..\/..\/..\/..\/platformerGraphicsDeluxe_Updated\/Tiles\/tiles_spritesheet.png');
+        map.addTilesetImage('sample2', '..\/..\/..\/..\/sheet1.png')
 
         //create layers
-        groundLayer = map.createLayer('ground');
-        grassLayer = map.createLayer('grass');
+        outline = map.createLayer('Map Outline');
 
         //collision on blockedLayer
         map.setCollisionBetween(1, 1000, true, 'ground');
+        map.setCollisionBetween(1, 1000, true, 'walls');
+        map.setCollisionBetween(1, 1000, true, 'platforms');
+
 
     },
 

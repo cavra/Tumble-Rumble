@@ -20,7 +20,6 @@ TumbleRumble.preloader.prototype = {
 
 		// Game Objects
 		this.preload_arenas();
-		this.preload_player();
 
 	},
 	
@@ -70,20 +69,11 @@ TumbleRumble.preloader.prototype = {
 	preload_arenas: function() {
 		
 		//tilemaps
-		this.load.tilemap('map_level_0', 'game/assets/tilemaps/arena_0/arena_0.json', null, Phaser.Tilemap.TILED_JSON);
-		this.load.image('tiles_spritesheet0', 'game/assets/tilemaps/arena_0/tiles_spritesheet.png');
+		this.load.tilemap('sample_arena', 'game/assets/tilemaps/sample_arena/sample_arena.json', null, Phaser.Tilemap.TILED_JSON);
+		this.load.image('sheet1', 'game/assets/tilemaps/sample_arena/sheet1.png');
 		
-		this.load.tilemap('arena_1', 'game/assets/tilemaps/arena_1/arena_1.json', null, Phaser.Tilemap.TILED_JSON);
-		this.load.image('tiles_spritesheet1', 'game/assets/tilemaps/arena_1/tiles_spritesheet.png');
-
 	},
 	
-	preload_player: function() {
-
-		this.load.image('tumbleweed', 'game/assets/textures/player/tumbleweed.png');
-	
-	},
-
 	create: function() {
 
 		//once everything has been preloaded, stop cropping the preload bar
