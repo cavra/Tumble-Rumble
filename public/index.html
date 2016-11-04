@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> <!-- NEED this to show changes -->
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <title>Tumble Rumble</title>
+
+    <!-- Phaser Library -->
+    <script src='/vendor/phaser.min.js'></script>
+
+    <!-- Socket Library -->
+    <script src='/socket.io/socket.io.js'></script>
+
+    <!-- CSS Stylesheets -->
+    <link type='text/css' rel='stylesheet' href='/style/style.css' />
+
+    <!-- Game States -->
+    <script src="game/states/boot.js"></script>
+    <script src="game/states/preloader.js"></script>
+    <script src="game/states/welcome.js"></script>
+    <script src="game/states/lobby.js"></script>
+    <script src="game/states/selection.js"></script>
+    <script src="game/states/arena.js"></script>
+    <script src="game/states/results.js"></script>
+    <script src="game/states/settings.js"></script>
+
+    <!-- Game Objects -->
+    <script src="game/assets/entities/player.js"></script>
+    <script src='/game/assets/entities/RemotePlayer.js'></script>
+  </head>
+  <body>
+    <div id="game_container"></div>
+
+    <script type="text/javascript">
+
+    window.onload = function() {
+
+      var game = new Phaser.Game(1000, 600, Phaser.AUTO, 'game_container');
+
+      game.state.add('boot', TumbleRumble.boot);
+      game.state.add('preloader', TumbleRumble.preloader);
+      game.state.add('welcome', TumbleRumble.welcome);
+      game.state.add('lobby', TumbleRumble.lobby);
+      game.state.add('settings', TumbleRumble.settings);
+      game.state.add('selection', TumbleRumble.selection);
+      game.state.add('arena', TumbleRumble.arena);
+      game.state.add('results', TumbleRumble.results);
+
+      game.state.start('boot');
+
+    };
+
+    </script>
+
+    <p>ComputersAreHard Inc.</p>
+
+  </body>
+</html>

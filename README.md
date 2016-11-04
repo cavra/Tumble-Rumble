@@ -1,43 +1,32 @@
-# CSCE - 315 Group Project 2 - Tumble Rumble
+phaser-multiplayer-game
+===
 
-## Project Summary
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-This group project is the second programming assignment for CSCE 315 at Texas A&M. It is a multiplayer game developed in HTML5. For more details, see the links below. 
+Simple real-time multiplayer [phaser](http://phaser.io/) game which uses node and websockets.
 
-## Members
-Jason Alonzo - 124000224<br>
-Cory Avra - 423005091<br>
-Reed Spivey - 623004372<br>
-Brandon Gann - 823000358<br>
+![preview](https://raw.githubusercontent.com/xicombd/phaser-multiplayer-game/master/public/assets/preview.gif)
 
-## Localhost Instructions
+Based on the tutorial found here:
+http://rawkes.com/articles/creating-a-real-time-multiplayer-game-with-websockets-and-node.html
 
-This game can be run locally through python by navigating to its directory and entering this into the command prompt:
-	
-	$ python -m SimpleHTTPServer
-	
-## Helpful Links
+And derived from the Phaser's [tanks example game](https://github.com/photonstorm/phaser-examples/blob/master/examples/games/tanks.js).
 
-### General
 
-[Project Guidelines](https://docs.google.com/document/d/187NokR-hFrJIfcoUGKmY0hIjT9iMJpOtQUEcyDtSB7k/edit)
 
-[IdeaMache Curation](https://ideamache.ecologylab.net/v/UpeGkSj1X9/)
+### install
+```
+npm install
+```
 
-[Development Log](https://docs.google.com/document/d/1GpgrooDESPburxhSry0y4EyLmK5WqAE1mVtQtj3yDZ8/edit?usp=sharing) 
+**Note**: If you're new to node, check the [original tutorial](http://rawkes.com/articles/creating-a-real-time-multiplayer-game-with-websockets-and-node.html).
 
-### Deliverable 1 (Interactive Game Design)
 
-[Google Doc](https://docs.google.com/document/d/1BeEMBn4f1MeWA3jVzjUNd0Jw-hCdaoTh7SGW8L-iiic/edit?usp=sharing)
+### development
+```
+npm run dev
+```
 
-[Change Log](https://docs.google.com/document/d/1Y1uz1-Le6BsaAkqbf8q4dkl5UrCj5hp1TVaS25fI0oo/edit?usp=sharing)
+### questions?
 
-### Deliverable 2 (Formative User Study)
-
-[Google Doc](https://docs.google.com/document/d/1WzDQdtBhk-w26gtdeWK18lK4jFh9TFa8f3fjVOdm3j8/edit?usp=sharing)
-
-[Change Log](https://docs.google.com/document/d/1d_HoEv8TZBUlxYFplItrYo7T-0kKFEhVWg7cVKMF-rs/edit?usp=sharing)
-
-### Delierable 3 (Functional Specification)
-
-[Google Doc](https://docs.google.com/document/d/1S14ztRxnAhwNIQ1p6idqvPS1UneUU8B11ZKj5RVOgxM/edit?usp=sharing)
+Open an [issue](https://github.com/xicombd/phaser-multiplayer-game/issues), and I'll try to answer :)
