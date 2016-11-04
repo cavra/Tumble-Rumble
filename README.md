@@ -12,13 +12,9 @@ Brandon Gann - 823000358<br>
 
 ## Localhost Instructions
 
-This game uses node.js and websockets to run. With node.js and npm installed, run node this from its directory to start the game:
+This game uses node.js to run. With node.js and npm installed, run this from its directory to start the game:
 	
-	$ server.js  
-
-This game can also be run locally through python by navigating to its directory with index.html and entering this into the command prompt:
-	
-	$ python -m SimpleHTTPServer
+	$ npm run dev  
 	
 ## Helpful Links
 
