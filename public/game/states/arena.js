@@ -57,15 +57,14 @@ TumbleRumble.arena.prototype = {
     this.background = this.add.tileSprite(0, 0, 1000, 600, 'welcome_background');
 
     // Tilemap
-    map = this.game.add.tilemap('arena_1');
+    map = this.game.add.tilemap('arena1');
 
     // The first parameter is the tileset name as specified in Tiled
     // The second is the key to the asset
-    map.addTilesetImage('Wood', 'tiles_spritesheet1');
+    map.addTilesetImage('tileset1', 'tileset1');
 
     // Create layers
     groundLayer = map.createLayer('ground');
-    grassLayer = map.createLayer('grass');
 
     // Collision on blockedLayer
     map.setCollisionBetween(1, 1000, true, 'ground');
