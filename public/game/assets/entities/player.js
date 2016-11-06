@@ -36,7 +36,7 @@ Player.prototype.update = function() {
     this.playerControls();
     this.playerPhysics();
 
-    // Leep location updated
+    // Leep location updated, accounting for anchor displacement
     this.x = this.player.x;
     this.y = this.player.y;
 };
