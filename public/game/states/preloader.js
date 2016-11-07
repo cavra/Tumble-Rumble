@@ -77,8 +77,8 @@ TumbleRumble.preloader.prototype = {
 	
 	preload_player: function() {
 
-		this.load.image('tumbleweed', 'game/assets/textures/player/tumbleweed.png');
-	
+		this.game.load.spritesheet('tumbleweed', 'game/assets/textures/player/tumbleweed.png', 64, 64);
+
 	},
 
 	create: function() {

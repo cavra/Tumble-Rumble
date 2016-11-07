@@ -5,10 +5,14 @@ function Player(game) {
 Player.prototype.create = function() {
     console.log('Creating Local Player');
 
+    // Add the sprite and its animations
     this.player = this.game.add.sprite(200, 100, 'tumbleweed');
+    this.player.animations.add('standing', [0], true);
+    this.player.animations.add('tumble', [0, 1, 2, 3, 4, 5], 5, true);
+    this.player.animations.play('standing');
 
     // Apperance
-    this.player.scale.setTo(0.3, 0.3);
+    this.player.scale.setTo(0.5, 0.5);
 
     // Physics
     this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
@@ -46,18 +50,21 @@ Player.prototype.playerControls = function() {
     // Move Left
     if (this.cursors.left.isDown) {
         this.player.body.acceleration.x = -1000
-        this.player.scale.x = 0.3;
+        this.player.scale.x = 0.5;
+        this.player.animations.play('tumble');
     }
     // Move Right
     else if (this.cursors.right.isDown) {
         this.player.body.acceleration.x = 1000;
-        this.player.scale.x = -0.3;
+        this.player.scale.x = -0.5;
+        this.player.animations.play('tumble');
     }
     // Slow to a stop
     else {
         //slow the player to a stop
         this.player.body.acceleration.x = 0;
         this.player.body.drag.x = 2000;
+        this.player.animations.play('standing');
     }
 
     // Jump (needs work)

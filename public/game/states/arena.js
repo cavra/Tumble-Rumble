@@ -54,7 +54,7 @@ TumbleRumble.arena.prototype = {
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
     // Background
-    this.background = this.add.tileSprite(0, 0, 1000, 600, 'welcome_background');
+    //this.background = this.add.tileSprite(0, 0, 1000, 600, 'welcome_background');
 
     // Tilemap
     map = this.game.add.tilemap('arena1');
