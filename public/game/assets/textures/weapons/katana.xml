@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:c398cf3e9fef9d19cea6a579d790f0be:bb42592ade31eb9561f9edb88860fcd6:fa5cfe56b4db262e3b8dacd257339337$ -->
+<TextureAtlas imagePath="katana.png" width="492" height="349">
+    <SubTexture name="Katana1" x="0" y="0" width="154" height="220"/>
+    <SubTexture name="Katana2" x="154" y="0" width="208" height="170"/>
+    <SubTexture name="Katana3" x="0" y="220" width="234" height="129"/>
+    <SubTexture name="Katana4" x="234" y="220" width="258" height="62"/>
+</TextureAtlas>

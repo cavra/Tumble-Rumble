@@ -5,16 +5,16 @@ function Player(game) {
 Player.prototype.create = function() {
     console.log('Creating Local Player');
 
-    // Add the sprite and its animations
+    // Add the Player sprite and its animations
     this.player = this.game.add.sprite(200, 100, 'tumbleweed');
     this.player.animations.add('standing', [0], true);
     this.player.animations.add('tumble', [0, 1, 2, 3, 4, 5], 5, true);
     this.player.animations.play('standing');
 
-    // Apperance
+    // Player's Apperance
     this.player.scale.setTo(0.5, 0.5);
 
-    // Physics
+    // Player's Physics
     this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
     this.player.body.collideWorldBounds = true;
     this.player.anchor.set(0.5);
@@ -23,7 +23,26 @@ Player.prototype.create = function() {
     this.player.body.maxVelocity.y = 1000;
     this.player.body.gravity.y = 1000;
 
-    // Location
+    // Player's Weapons and their animations
+    this.katana = this.game.add.sprite(null, null, 'weapon_katana');
+    this.katana.animations.add('float', Phaser.Animation.generateFrameNames('Katana', 1, 1), 5, true);
+    this.katana.animations.add('swing', Phaser.Animation.generateFrameNames('Katana', 1, 4), 10, true);
+    this.katana.animations.play('swing');
+
+    // Weapon's Appearance
+    this.katana.scale.setTo(-0.5, 0.5);
+
+    // Weapon's physics
+    this.game.physics.arcade.enable(this.katana);
+    this.katana.body.moves = false;
+    this.katana.anchor.setTo(0.2, 0.8);
+    
+    // Add the weapon to the player, and set relative position
+    this.player.addChild(this.katana);
+    this.katana.x = -50;
+    this.katana.y = 0;
+
+    // Keep track of the player's location Location
     this.x = this.player.x;
     this.y = this.player.y;
 
@@ -36,11 +55,11 @@ Player.prototype.create = function() {
 
 Player.prototype.update = function() {
 
-    // These are called by the Arena's update function
+    // This is called by the Arena's update function
     this.playerControls();
     this.playerPhysics();
 
-    // Leep location updated, accounting for anchor displacement
+    // Keep the player's location updated
     this.x = this.player.x;
     this.y = this.player.y;
 };

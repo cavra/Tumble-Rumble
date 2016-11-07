@@ -9,8 +9,9 @@ TumbleRumble.preloader.prototype = {
 
 	preload: function() {
 		
+		this.show_preload_screen();
+
 		// Game States
-		this.preload_boot();
 		this.preload_welcome();
 		this.preload_lobby();
 		this.preload_selection();
@@ -24,7 +25,7 @@ TumbleRumble.preloader.prototype = {
 
 	},
 	
-	preload_boot: function() {
+	show_preload_screen: function() {
 
 		// Has to be in preload, because it won't create the sprite otherwise
 		this.background = this.add.sprite(0, 0, 'preload_background');
@@ -77,8 +78,11 @@ TumbleRumble.preloader.prototype = {
 	
 	preload_player: function() {
 
+		// Player
 		this.game.load.spritesheet('tumbleweed', 'game/assets/textures/player/tumbleweed.png', 64, 64);
 
+		// Player items
+	    this.load.atlasXML('weapon_katana', 'game/assets/textures/weapons/katana.png', 'game/assets/textures/weapons/katana.xml');
 	},
 
 	create: function() {
