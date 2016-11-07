@@ -10,12 +10,14 @@ Cory Avra - 423005091<br>
 Reed Spivey - 623004372<br>
 Brandon Gann - 823000358<br>
 
-## Localhost Instructions
+## Build Instructions
 
 This game uses node.js to run. With node.js and npm installed, run this from its directory to start the game:
 	
 	$ npm run dev  
 	
+From here, use localhost:13310 to connect. If you are running the game on one of TAMU's servers, any computer connected to TAMU's network can connect using example.tamu.server.edu:13310. We usually use compute.cs.tamu.edu as our game server, so we would connect with compute.cs.tamu.edu:13310. 
+
 ## Helpful Links
 
 ### General
@@ -41,3 +43,9 @@ This game uses node.js to run. With node.js and npm installed, run this from its
 ### Delierable 3 (Functional Specification)
 
 [Google Doc](https://docs.google.com/document/d/1S14ztRxnAhwNIQ1p6idqvPS1UneUU8B11ZKj5RVOgxM/edit?usp=sharing)
+
+[Change Log](weAreStillWorkingOnThis)
+
+### Delierable 4 (Functional Prototype 1)
+
+[Google Doc](weAreStillWorkingOnThis)
