@@ -178,10 +178,7 @@ TumbleRumble.arena.prototype = {
 
     // Update all other players
     for (var i = 0; i < remotePlayers.length; i++) {
-      if (remotePlayers[i].alive) {
-        remotePlayers[i].update();
-        this.game.physics.arcade.collide(player, remotePlayers[i].player);
-      }
+      remotePlayers[i].update();
     }
   },
 

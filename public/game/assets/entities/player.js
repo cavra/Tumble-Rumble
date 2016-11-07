@@ -116,6 +116,10 @@ Player.prototype.playerControls = function() {
     else {
         this.player.body.allowGravity = true;
     }
+
+    if (this.health <= 0) {
+        this.player.kill();
+    }
 };
 
 Player.prototype.playerPhysics = function() {
@@ -137,14 +141,16 @@ Player.prototype.weaponControls = function() {
 
 Player.prototype.weaponPhysics = function() {
     
-    for (let remotePlayer of remotePlayers) {
-        this.game.physics.arcade.overlap(this.katana, remotePlayer.player, this.damageOtherPlayer, null, this);
+    if (this.attack_key.isDown) {
+        for (let remotePlayer of remotePlayers) {
+            this.game.physics.arcade.overlap(this.katana, remotePlayer.player, this.damageOtherPlayer(remotePlayer), null, this);
+        }
     }
 };
 
-Player.prototype.damageOtherPlayer = function(player, remotePlayer) {
+Player.prototype.damageOtherPlayer = function(remotePlayer) {
     remotePlayer.health -= 1;
-    console.log('Player: ', remotePlayer, ' has ', remotePlayer.health, ' health left.');
+    console.log('Player: ', remotePlayer.name, ' has ', remotePlayer.health, ' health left.');
 };
 
 Player.prototype.playerById = function(id) {
