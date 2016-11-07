@@ -1,5 +1,6 @@
-function Player(game) {
+function Player(game, remotePlayers) {
     this.game = game;
+    this.remotePlayers = remotePlayers;
 }
 
 Player.prototype.create = function() {
@@ -19,15 +20,14 @@ Player.prototype.create = function() {
     this.player.body.collideWorldBounds = true;
     this.player.anchor.set(0.5);
     this.player.body.allowGravity = true;
+    this.player.body.gravity.y = 1000;
     this.player.body.maxVelocity.x = 375;
     this.player.body.maxVelocity.y = 1000;
-    this.player.body.gravity.y = 1000;
 
     // Player's Weapons and their animations
     this.katana = this.game.add.sprite(null, null, 'weapon_katana');
     this.katana.animations.add('float', Phaser.Animation.generateFrameNames('Katana', 1, 1), 5, true);
-    this.katana.animations.add('swing', Phaser.Animation.generateFrameNames('Katana', 1, 4), 10, true);
-    this.katana.animations.play('swing');
+    this.katana.animations.add('swing', Phaser.Animation.generateFrameNames('Katana', 1, 4), 15, true);
 
     // Weapon's Appearance
     this.katana.scale.setTo(-0.5, 0.5);
@@ -42,6 +42,10 @@ Player.prototype.create = function() {
     this.katana.x = -50;
     this.katana.y = 0;
 
+    // Player's custom values
+    this.health = 100;
+    this.playerState = "idle";
+
     // Keep track of the player's location Location
     this.x = this.player.x;
     this.y = this.player.y;
@@ -51,6 +55,7 @@ Player.prototype.create = function() {
 
     // Controls
     this.cursors = this.game.input.keyboard.createCursorKeys();
+    this.attack_key = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
 };
 
 Player.prototype.update = function() {
@@ -59,12 +64,29 @@ Player.prototype.update = function() {
     this.playerControls();
     this.playerPhysics();
 
+    this.weaponControls();
+    this.weaponPhysics();
+
     // Keep the player's location updated
     this.x = this.player.x;
     this.y = this.player.y;
 };
 
 Player.prototype.playerControls = function() {
+
+    if (this.playerState == "idle") {
+        // default controls and physics
+    }
+    else if (this.playerState == "water") {
+        // slow them down
+    }
+    else if (this.playerState == "hurt") {
+        // needs to be invincible for a second or 2, and check if their health is less than 0
+        // if it is, KILL them
+    }
+    else if (this.playerState == "attacking") {
+        // slow them down and check if their attack lands
+    }
 
     // Move Left
     if (this.cursors.left.isDown) {
@@ -101,4 +123,35 @@ Player.prototype.playerPhysics = function() {
     // World
     this.game.physics.arcade.collide(this.player, groundLayer);
     
+};
+
+Player.prototype.weaponControls = function() {
+
+    if (this.attack_key.isDown) {
+        this.katana.animations.play('swing');
+    }
+    else {
+        this.katana.animations.play('float');
+    }
+};
+
+Player.prototype.weaponPhysics = function() {
+    
+    for (let remotePlayer of remotePlayers) {
+        this.game.physics.arcade.overlap(this.katana, remotePlayer.player, this.damageOtherPlayer, null, this);
+    }
+};
+
+Player.prototype.damageOtherPlayer = function(player, remotePlayer) {
+    remotePlayer.health -= 1;
+    console.log('Player: ', remotePlayer, ' has ', remotePlayer.health, ' health left.');
+};
+
+Player.prototype.playerById = function(id) {
+  for (var i = 0; i < remotePlayers.length; i++) {
+    if (remotePlayers[i].name === id) {
+      return remotePlayers[i];
+    }
+  }
+  return false;
 };

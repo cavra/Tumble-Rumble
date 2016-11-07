@@ -9,9 +9,10 @@ RemotePlayer.prototype.create = function (index, player, x, y) {
   this.player = player;
 
   this.player = this.game.add.sprite(x, y, 'tumbleweed');
+  this.game.physics.arcade.enable(this.player);
 
   // Apperance
-  this.player.scale.setTo(0.3, 0.3);
+  this.player.scale.setTo(0.5, 0.5);
   this.player.anchor.set(0.5);
 
   this.lastPosition = { 

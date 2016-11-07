@@ -22,13 +22,10 @@ TumbleRumble.arena = function(game) {
 };
 
 // Global Variables
-var socket; // Socket connection
+var socket;
 
 var player;
-var remotePlayers; // array of other players
-
-var currentSpeed = 0;
-var cursors;
+var remotePlayers;
 
 var myGame; 
 
@@ -45,8 +42,8 @@ TumbleRumble.arena.prototype = {
     this.music.play();
 
     this.buildWorld();
-    this.createPlayer();
     this.createRemotePlayers();
+    this.createPlayer();
   },
 
   buildWorld: function() {
@@ -73,7 +70,7 @@ TumbleRumble.arena.prototype = {
   createPlayer: function() {
 
     // Create an instance for the player
-    player = new Player(this.game); 
+    player = new Player(this.game, remotePlayers); 
     
     // Create the player
     player.create();
@@ -137,7 +134,6 @@ TumbleRumble.arena.prototype = {
     // Create the instance for the new player
     var newRemotePlayer = new RemotePlayer(myGame);
     newRemotePlayer.create(data.id, player, data.x, data.y);
-    console.log("x position: ", data.x);
 
     // Add new player to the remote players array
     remotePlayers.push(newRemotePlayer);
