@@ -20,7 +20,7 @@ Player.prototype.create = function() {
     this.player.body.collideWorldBounds = true;
     this.player.anchor.set(0.5);
     this.player.body.allowGravity = true;
-    this.player.body.gravity.y = 9.8;
+    this.player.body.gravity.y = 1000;
     this.player.body.maxVelocity.x = 375;
     this.player.body.maxVelocity.y = 1000;
 
@@ -109,9 +109,9 @@ Player.prototype.playerControls = function() {
     }
 
     // Jump (needs work)
-    if (this.cursors.up.isDown && this.player.body.touching.down) {
+    if (this.cursors.up.isDown) {
         this.player.body.allowGravity = false;  
-        this.player.body.velocity.y = -250;
+        this.player.body.velocity.y = -480;
     }
     else {
         this.player.body.allowGravity = true;
