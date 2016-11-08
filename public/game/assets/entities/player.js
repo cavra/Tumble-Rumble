@@ -20,7 +20,7 @@ Player.prototype.create = function() {
     this.player.body.collideWorldBounds = true;
     this.player.anchor.set(0.5);
     this.player.body.allowGravity = true;
-    this.player.body.gravity.y = 0.5;
+    this.player.body.gravity.y = 9.8;
     this.player.body.maxVelocity.x = 375;
     this.player.body.maxVelocity.y = 1000;
 
