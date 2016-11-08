@@ -109,7 +109,7 @@ Player.prototype.playerControls = function() {
     }
 
     // Jump (needs work)
-    if (this.cursors.up.isDown) {
+    if (this.cursors.up.isDown && this.player.body.touching.down) {
         this.player.body.allowGravity = false;  
         this.player.body.velocity.y = -250;
     }
