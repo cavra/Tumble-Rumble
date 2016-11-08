@@ -83,6 +83,7 @@ TumbleRumble.arena.prototype = {
     this.setEventHandlers();
   },
 
+
   setEventHandlers: function() {
     // Socket connection successful
     socket.on('connect', this.onSocketConnected);
@@ -132,7 +133,7 @@ TumbleRumble.arena.prototype = {
 
     // Create the instance for the new player
     var newRemotePlayer = new RemotePlayer(myGame);
-    newRemotePlayer.create(data.id, data.x, data.y);
+    newRemotePlayer.create(data.id, player, data.x, data.y);
 
     // Add new player to the remote players array
     remotePlayers.push(newRemotePlayer);
@@ -149,8 +150,8 @@ TumbleRumble.arena.prototype = {
     }
 
     // Update player position
-    movePlayer.tumbler.playerSprite.x = data.x;
-    movePlayer.tumbler.playerSprite.y = data.y;
+    movePlayer.player.x = data.x;
+    movePlayer.player.y = data.y;
   },
 
   // Remove player
@@ -170,6 +171,7 @@ TumbleRumble.arena.prototype = {
   },
 
   update: function () {
+
     // Update our player
     player.update();
     socket.emit('move player', { x: player.x, y: player.y});

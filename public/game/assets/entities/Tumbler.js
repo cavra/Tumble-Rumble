@@ -36,6 +36,10 @@ Tumbler.prototype.create = function() {
 
 Tumbler.prototype.update = function() {
 
+    // Update sprites's location
+    this.x = this.playerSprite.x;
+    this.y = this.playerSprite.y;
+
     // World
     this.game.physics.arcade.collide(this.playerSprite, groundLayer);
     
