@@ -2,7 +2,7 @@
   "name": "TumbleRumble",
   "version": "1.0.0",
   "description": "Multiplayer Game in Phaser",
-  "main": "lib/Server.js",
+  "main": "server/Server.js",
   "scripts": {
     "start": "node .",
     "dev": "nodemon .",

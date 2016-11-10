@@ -15,11 +15,6 @@ RemotePlayer.prototype.create = function (index, x, y) {
     this.tumbler = new Tumbler(this.game);
     this.tumbler.create();
 
-    // Player's weapon
-    this.weapon = new WeaponKatana(this.game); 
-    this.weapon.create();
-    this.tumbler.playerSprite.addChild(this.weapon.katana);
-
     // Player's custom values
     this.alive = true;
     this.health = 100;
@@ -30,6 +25,7 @@ RemotePlayer.prototype.create = function (index, x, y) {
     this.y = this.tumbler.y;
 
     this.player = this.tumbler.playerSprite;
+    this.hitbox = this.tumbler.playerSprite;
 
 };
 

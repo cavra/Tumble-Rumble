@@ -11,8 +11,8 @@ var port = process.env.PORT || 13310;
 /* ************************************************
 ** GAME VARIABLES
 ************************************************ */
-var socket;	// Socket controller
-var players;	// Array of connected players
+var socket; // Socket controller
+var players;  // Array of connected players
 
 /* ************************************************
 ** GAME INITIALISATION
@@ -20,12 +20,12 @@ var players;	// Array of connected players
 
 // Create and start the http server
 var server = http.createServer(ecstatic( { 
-	root: path.resolve(__dirname, '../public') 
+  root: path.resolve(__dirname, '../client') 
 })).listen(port, function (err) {
-	if (err) {
-		throw err;
-	}
-  	init();
+  if (err) {
+    throw err;
+  }
+    init();
 })
 
 function init () {
