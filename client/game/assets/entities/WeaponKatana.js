@@ -41,10 +41,15 @@ WeaponKatana.prototype.weaponControls = function() {
 
 WeaponKatana.prototype.weaponPhysics = function() {
     
-    // Only damage if the player is pressing the attack key
+    // First check if the player is attacking
     if (this.attack_key.isDown) {
+        // Then check if the weapon is touching any of the other players 
         for (var i = 0; i < remotePlayers.length; i++) {
-            this.game.physics.arcade.overlap(this.katana, remotePlayers[i].player, this.damageOtherPlayer(remotePlayers[i]), null, this);
+            // If it is...
+            if (this.game.physics.arcade.overlap(this.katana, remotePlayers[i].player, null, null, this)) {
+                // Damage the other player
+                this.damageOtherPlayer(remotePlayers[i]);
+            }
         }
     }
 };
