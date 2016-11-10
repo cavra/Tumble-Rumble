@@ -25,29 +25,40 @@ TumbleRumble.arena = function(game) {
 var socket;
 
 var player;
+var remotePlayersHandler;
 var remotePlayers;
 
 var myGame; 
+
+var groundLayer;
 
 TumbleRumble.arena.prototype = {
 
   create: function() {
     console.log('Running Arena Game State');
 
+    // Take care of basic stuff
     myGame = this.game;
-
     socket = io.connect();
 
+    // Start the music
     this.music = this.add.audio('welcome_music', 0.5, true);
     this.music.play();
 
+    // Build the world
     this.buildWorld();
-    this.createRemotePlayers();
-    this.createPlayer();
+
+    // Spawn the remote players, if there are any
+    remotePlayersHandler = new RemotePlayersHandler(this.game, player);
+    remotePlayersHandler.setEventHandlers();
+
+    // Spawn the local player
+    player = new LocalPlayer(this.game); 
+    player.create();
   },
 
   buildWorld: function() {
-    // World
+    // We are using Arcade physics for our game
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
     // Background
@@ -56,140 +67,22 @@ TumbleRumble.arena.prototype = {
     // Tilemap
     map = this.game.add.tilemap('arena1');
 
+    // Map the correct tileset image to the tilemap
     // The first parameter is the tileset name as specified in Tiled
     // The second is the key to the asset
     map.addTilesetImage('tileset1', 'tileset1');
 
-    // Create layers
+    // Create tilemap layers
     groundLayer = map.createLayer('ground');
-
-    // Collision on blockedLayer
     map.setCollisionBetween(1, 1000, true, 'ground');
   },
 
-  createPlayer: function() {
-
-    // Create an instance for the player
-    player = new LocalPlayer(this.game); 
-    
-    // Create the player
-    player.create();
-  },
-
-  createRemotePlayers: function() {
-    remotePlayers = [];
-
-    // Start listening for events
-    this.setEventHandlers();
-  },
-
-
-  setEventHandlers: function() {
-    // Socket connection successful
-    socket.on('connect', this.onSocketConnected);
-
-    // Socket disconnection
-    socket.on('disconnect', this.onSocketDisconnect);
-
-    // New player message received
-    socket.on('new player', this.onNewPlayer);
-
-    // Player move message received
-    socket.on('move player', this.onMovePlayer);
-
-    // Player removed message received
-    socket.on('remove player', this.onRemovePlayer);
-  },
-
-  // Socket connected
-  onSocketConnected: function () {
-    console.log('Connected to socket server');
-
-    // Reset remotePlayers on reconnect
-    remotePlayers.forEach(function (enemy) {
-      enemy.player.kill();
-    })
-    remotePlayers = [];
-
-    // Send local player data to the game server
-    socket.emit('new player', { x: player.x, y: player.y});
-  },
-
-  // Socket disconnected
-  onSocketDisconnect: function () {
-    console.log('Disconnected from socket server');
-  },
-
-  // New player
-  onNewPlayer: function (data) {
-    console.log('New player connected:', data.id);
-
-    // Avoid possible duplicate players
-    var duplicate = playerById(data.id);
-    if (duplicate) {
-      console.log('Duplicate player!');
-      return;
-    }
-
-    // Create the instance for the new player
-    var newRemotePlayer = new RemotePlayer(myGame);
-    newRemotePlayer.create(data.id, player, data.x, data.y);
-
-    // Add new player to the remote players array
-    remotePlayers.push(newRemotePlayer);
-  },
-
-  // Move player
-  onMovePlayer: function (data) {
-    var movePlayer = playerById(data.id);
-
-    // Player not found
-    if (!movePlayer) {
-      console.log('Player not found: ', data.id);
-      return;
-    }
-
-    // Update player position
-    movePlayer.player.x = data.x;
-    movePlayer.player.y = data.y;
-  },
-
-  // Remove player
-  onRemovePlayer: function (data) {
-    var removePlayer = playerById(data.id);
-
-    // Player not found
-    if (!removePlayer) {
-      console.log('Player not found: ', data.id);
-      return;
-    }
-
-    removePlayer.player.kill();
-
-    // Remove player from array
-    remotePlayers.splice(remotePlayers.indexOf(removePlayer), 1);
-  },
-
   update: function () {
-
     // Update our player
     player.update();
-    socket.emit('move player', { x: player.x, y: player.y});
 
-    // Update all other players
-    for (var i = 0; i < remotePlayers.length; i++) {
-      remotePlayers[i].update();
-    }
+    // Update all remote players
+    remotePlayersHandler.update();
   },
 
-}
-
-// Find player by ID
-function playerById (id) {
-  for (var i = 0; i < remotePlayers.length; i++) {
-    if (remotePlayers[i].name === id) {
-      return remotePlayers[i];
-    }
-  }
-  return false;
-}
+};

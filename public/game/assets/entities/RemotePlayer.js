@@ -1,5 +1,8 @@
 function RemotePlayer(game) {
     this.game = game;
+
+    // Create the group
+    this.remotePlayersGroup = this.game.add.group();
 };
 
 RemotePlayer.prototype.create = function (index, x, y) {
@@ -46,6 +49,14 @@ RemotePlayer.prototype.update = function () {
 		this.tumbler.playerSprite.body = null;
 		this.tumbler.playerSprite.kill();
 	}
+};
+
+RemotePlayer.prototype.damage = function (damage) {
+    this.health -= damage;
+    console.log('Player: ', this.name, ' was damaged for: ', damage, ' and has ', this.health, ' health left.');
+    
+    // Tell the server we are damaging the other player
+    socket.emit('damage player', { health: this.health});
 };
 
 window.RemotePlayer = RemotePlayer;

@@ -26,12 +26,6 @@ Tumbler.prototype.create = function() {
     // Keep track of location
     this.x = this.playerSprite.x;
     this.y = this.playerSprite.y;
-
-    // Timers
-    this.tumblerJumpTimer = 0;
-
-    // Controls
-    this.cursors = this.game.input.keyboard.createCursorKeys();
 };
 
 Tumbler.prototype.update = function() {

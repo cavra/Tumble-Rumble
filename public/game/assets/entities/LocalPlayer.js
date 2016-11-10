@@ -1,6 +1,6 @@
 function LocalPlayer(game) {
     this.game = game;
-}
+};
 
 LocalPlayer.prototype.create = function() {
     console.log('Creating Local Player', this);
@@ -36,6 +36,9 @@ LocalPlayer.prototype.create = function() {
 };
 
 LocalPlayer.prototype.update = function() {
+
+    // Tell the server we are moving our player
+    socket.emit('move player', { x: player.x, y: player.y});
 
     // Handle user input
     this.playerControls();

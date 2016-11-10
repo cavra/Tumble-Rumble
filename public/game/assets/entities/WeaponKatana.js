@@ -1,6 +1,6 @@
 function WeaponKatana(game) {
     this.game = game;
-}
+};
 
 WeaponKatana.prototype.create = function(weapon) {
     console.log('Creating Melee Weapon');
@@ -27,7 +27,6 @@ WeaponKatana.prototype.create = function(weapon) {
 WeaponKatana.prototype.update = function() {
     this.weaponControls();
     this.weaponPhysics();
-
 };
 
 WeaponKatana.prototype.weaponControls = function() {
@@ -42,15 +41,14 @@ WeaponKatana.prototype.weaponControls = function() {
 
 WeaponKatana.prototype.weaponPhysics = function() {
     
+    // Only damage if the player is pressing the attack key
     if (this.attack_key.isDown) {
-        for (let remotePlayer of remotePlayers) {
-            this.game.physics.arcade.overlap(this.katana, remotePlayer.player, this.damageOtherPlayer(remotePlayer), null, this);
+        for (var i = 0; i < remotePlayers.length; i++) {
+            this.game.physics.arcade.overlap(this.katana, remotePlayers[i].player, this.damageOtherPlayer(remotePlayers[i]), null, this);
         }
     }
 };
 
 WeaponKatana.prototype.damageOtherPlayer = function(remotePlayer) {
-    remotePlayer.health -= 1;
-    console.log('Player: ', remotePlayer.name, ' has ', remotePlayer.health, ' health left.');
+    remotePlayer.damage(1);
 };
-
