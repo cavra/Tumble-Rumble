@@ -44,8 +44,10 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 [Google Doc](https://docs.google.com/document/d/1S14ztRxnAhwNIQ1p6idqvPS1UneUU8B11ZKj5RVOgxM/edit?usp=sharing)
 
-[Change Log](weAreStillWorkingOnThis)
+[Change Log](https://docs.google.com/document/d/1LcnWK-Mld2TWQa9GrCQocW0qqUzC1mJMCL9xvt9ZuOg/edit?usp=sharing)
 
 ### Delierable 4 (Functional Prototype 1)
 
 [Google Doc](weAreStillWorkingOnThis)
+
+[Change Log](weAreStillWorkingOnThis)
