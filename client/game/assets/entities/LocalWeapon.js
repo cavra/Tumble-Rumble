@@ -22,37 +22,38 @@ LocalWeapon.prototype.create = function(weapon) {
     this.katana.anchor.setTo(0.2, 0.8);
 
     // Weapon control keys
-    this.attack_key = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
+    this.attackKey = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
+
+    // Timers
+    this.weaponAttackTimer = 0;
 };
 
 LocalWeapon.prototype.update = function() {
     this.weaponControls();
-    this.weaponPhysics();
 };
 
 LocalWeapon.prototype.weaponControls = function() {
 
-    if (this.attack_key.isDown) {
-        socket.emit('attack player', { attack: true});
+    // Timer is already running...
+    if (this.attackKey.isDown && this.weaponAttackTimer.seconds > 0.5) {
+        this.weaponAttackTimer.destroy();
+        
+        // Execute the attack
+        socket.emit('attack player');
         this.katana.animations.play('swing');
-    }
-};
 
-LocalWeapon.prototype.weaponPhysics = function() {
-    
-    // First check if the player is attacking
-    if (this.attack_key.isDown) {
-        // Then check if the weapon is touching any of the other players
-        for (var i = 0; i < remotePlayers.length; i++) {
-            // If it is...
-            if (this.game.physics.arcade.overlap(this.katana, remotePlayers[i].player, null, null, this)) {
-                // Damage the other player
-                this.damageOtherPlayer(remotePlayers[i]);
-            }
-        }
+        // Restart the timer
+        this.weaponAttackTimer = this.game.time.create(false);
+        this.weaponAttackTimer.start();
     }
-};
+    // Timer is not running (first case only)
+    else if (this.attackKey.isDown && !this.weaponAttackTimer.running) {
 
-LocalWeapon.prototype.damageOtherPlayer = function(remotePlayer) {
-    remotePlayer.damage(1);
+        // Execute the attack
+        socket.emit('attack player');
+        this.katana.animations.play('swing');
+
+        this.weaponAttackTimer = this.game.time.create(false);
+        this.weaponAttackTimer.start();
+    }
 };

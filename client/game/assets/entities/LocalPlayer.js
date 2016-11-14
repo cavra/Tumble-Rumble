@@ -28,6 +28,7 @@ LocalPlayer.prototype.create = function() {
 
     // Timers
     this.playerJumpTimer = 0;
+    this.invincibleTimer = 0;
 
     // Controls
     this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -37,44 +38,32 @@ LocalPlayer.prototype.create = function() {
 
 LocalPlayer.prototype.update = function() {
 
-    // Tell the server we are moving our player
-    socket.emit('move player', { x: player.x, y: player.y});
+    if (this.alive) {
+        // Tell the server we are moving our player
+        socket.emit('move player', { x: player.x, y: player.y});
 
-    // Handle user input
-    this.playerControls();
+        // Handle user input
+        this.playerControls();
 
-    // Update the player components
-    this.tumbler.update();
-    this.weapon.update();
+        // Update the player components
+        this.tumbler.update();
+        this.weapon.update();
 
-    // Update player's location
-    this.x = this.tumbler.x;
-    this.y = this.tumbler.y;
+        // Update player's location
+        this.x = this.tumbler.x;
+        this.y = this.tumbler.y;
 
-    // Handle death
-    if (this.health <= 0 && this.alive) {
-        console.log('Player died: ', this.name);
-        this.alive = false;
-        this.tumbler.playerSprite.body = null;
-        this.tumbler.playerSprite.kill();
+        // Handle death
+        if (this.health <= 0 && this.alive) {
+            console.log('Player died: ', this.name);
+            this.alive = false;
+            this.tumbler.playerSprite.body = null;
+            this.tumbler.playerSprite.kill();
+        }
     }
 };
 
 LocalPlayer.prototype.playerControls = function() {
-
-    if (this.playerState == "idle") {
-        // default controls and physics
-    }
-    else if (this.playerState == "water") {
-        // slow them down
-    }
-    else if (this.playerState == "hurt") {
-        // needs to be invincible for a second or 2, and check if their health is less than 0
-        // if it is, KILL them
-    }
-    else if (this.playerState == "attacking") {
-        // slow them down and check if their attack lands
-    }
 
     // Move Left
     if (this.cursors.left.isDown) {
@@ -106,6 +95,52 @@ LocalPlayer.prototype.playerControls = function() {
     }
 
     if (this.health <= 0) {
-        this.tumbler.playerSprite.kill();
+        this.die();
     }
+};
+
+LocalPlayer.prototype.takeDamage = function (damage) {
+    // Timer is already running...
+    if (this.invincibleTimer.seconds > 0.7) {
+        // Kill the running timer
+        this.invincibleTimer.destroy();
+        
+        // Decrement the health value
+        this.health -= damage;
+        this.tumbler.playerSprite.tint = 0x000000;
+        console.log('Player: ', this.name, ' was damaged for: ', damage, ' and has ', this.health, ' health left.');
+        
+        // Restart the timer
+        this.invincibleTimer = this.game.time.create(false);
+        this.invincibleTimer.start();
+
+        // Remove the tint after the timer is up
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.7, function() {this.tumbler.playerSprite.tint = 0xFFFFFF;}, this);
+    }
+    // Timer is not running (first case only)
+    else if (!this.invincibleTimer.running) {
+        // Decrement the health value
+        this.health -= damage;
+        this.tumbler.playerSprite.tint = 0x000000;
+        console.log('Player: ', this.name, ' was damaged for: ', damage, ' and has ', this.health, ' health left.');
+        
+        // Restart the timer
+        this.invincibleTimer = this.game.time.create(false);
+        this.invincibleTimer.start();
+
+        // Remove the tint after the timer is up
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.7, function() {this.tumbler.playerSprite.tint = 0xFFFFFF;}, this);
+    }
+};
+
+LocalPlayer.prototype.die = function () {
+    console.log('Player died: ', this.name);
+
+    // Tell the server we died
+    socket.emit('kill player');
+
+    this.alive = false;
+    this.tumbler.playerSprite.body = null;
+    this.tumbler.playerSprite.destroy(true); // true destroys children
+    this.tumbler.playerSprite.kill();
 };

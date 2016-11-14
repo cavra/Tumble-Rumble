@@ -23,12 +23,26 @@ RemoteWeapon.prototype.create = function(weapon) {
 
     // Weapon control keys
     this.attack_key = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
+
+    this.isAttacking = null;
 };
 
 RemoteWeapon.prototype.update = function() {
-    // Might need something here later
+    this.weaponPhysics();
 };
 
 RemoteWeapon.prototype.attack = function() {
     this.katana.animations.play('swing');
+    this.isAttacking = true;
+    this.game.time.events.add(Phaser.Timer.SECOND * 0.7, function() {this.isAttacking = false;}, this);
+};
+
+RemoteWeapon.prototype.weaponPhysics = function() {
+    // First check if the player is attacking
+    if (this.isAttacking) {
+        if (this.game.physics.arcade.overlap(this.katana, player.player, null, null, this)) {
+            // Damage the other player
+            player.takeDamage(15);
+        }
+    }
 };

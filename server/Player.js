@@ -5,8 +5,6 @@ var Player = function (startX, startY) {
   var x = startX;
   var y = startY;
   var id;
-  var health;
-  var attack;
 
   // Getters and setters
   var getX = function () {
@@ -17,14 +15,6 @@ var Player = function (startX, startY) {
     return y;
   };
 
-  var getHealth = function () {
-    return health;
-  };
-
-  var getAttack = function () {
-    return attack;
-  };
-
   var setX = function (newX) {
     x = newX;
   };
@@ -33,24 +23,12 @@ var Player = function (startX, startY) {
     y = newY;
   };
 
-  var setHealth = function (newHealth) {
-    health = newHealth;
-  };
-
-  var setAttack = function (newAttack) {
-  	attack = newAttack;
-  }
-
   // Define which variables and methods can be accessed
   return {
     getX: getX,
     getY: getY,
-    getHealth: getHealth,
-    getAttack: getAttack,
     setX: setX,
     setY: setY,
-    setHealth: setHealth,
-    setAttack: setAttack,
     id: id
   };
 };

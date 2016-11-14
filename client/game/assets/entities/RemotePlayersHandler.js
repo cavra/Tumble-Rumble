@@ -25,11 +25,11 @@ RemotePlayersHandler.prototype.setEventHandlers = function () {
     // Player move message received
     socket.on('move player', this.onMovePlayer);
 
-    // Player damage message received
-    socket.on('damage player', this.onDamagePlayer);
-
     // Player attack message received
     socket.on('attack player', this.onAttackPlayer);
+
+    // Player death message received
+    socket.on('kill player', this.onKillPlayer);
 
     // Player removed message received
     socket.on('remove player', this.onRemovePlayer);
@@ -85,20 +85,6 @@ RemotePlayersHandler.prototype.onMovePlayer = function (data) {
     tempPlayer.player.y = data.y;
 };
 
-RemotePlayersHandler.prototype.onDamagePlayer = function (data) {
-    //console.log('onDamagePlayer called on player: ', data.id);
-    var tempPlayer = playerById(data.id);
-
-    // Player not found
-    if (!tempPlayer) {
-      console.log('Player not found: ', data.id);
-      return;
-    }
-
-    // Update player health
-    tempPlayer.health = data.health;
-};
-
 RemotePlayersHandler.prototype.onAttackPlayer = function (data) {
     //console.log('onAttack called on player: ', data.id);
     var tempPlayer = playerById(data.id);
@@ -111,6 +97,20 @@ RemotePlayersHandler.prototype.onAttackPlayer = function (data) {
 
     // Cause the player to attack
     tempPlayer.attack();
+};
+
+RemotePlayersHandler.prototype.onKillPlayer = function (data) {
+    //console.log('onDamagePlayer called on player: ', data.id);
+    var tempPlayer = playerById(data.id);
+
+    // Player not found
+    if (!tempPlayer) {
+      console.log('Player not found: ', data.id);
+      return;
+    }
+
+    // Update player health
+    tempPlayer.die();
 };
 
 RemotePlayersHandler.prototype.onRemovePlayer = function (data) {
