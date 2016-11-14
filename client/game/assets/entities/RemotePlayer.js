@@ -15,6 +15,11 @@ RemotePlayer.prototype.create = function (index, x, y) {
     this.tumbler = new Tumbler(this.game);
     this.tumbler.create();
 
+    // Player's weapon
+    this.weapon = new RemoteWeapon(this.game); 
+    this.weapon.create();
+    this.tumbler.playerSprite.addChild(this.weapon.katana);
+
     // Player's custom values
     this.alive = true;
     this.health = 100;
@@ -53,6 +58,11 @@ RemotePlayer.prototype.damage = function (damage) {
     
     // Tell the server we are damaging the other player
     socket.emit('damage player', { health: this.health});
+};
+
+RemotePlayer.prototype.attack = function () {
+    console.log('Player: ', this.name, ' is attacking.');
+    this.weapon.attack();
 };
 
 window.RemotePlayer = RemotePlayer;

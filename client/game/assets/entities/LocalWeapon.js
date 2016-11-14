@@ -1,8 +1,8 @@
-function WeaponKatana(game) {
+function LocalWeapon(game) {
     this.game = game;
 };
 
-WeaponKatana.prototype.create = function(weapon) {
+LocalWeapon.prototype.create = function(weapon) {
     console.log('Creating Melee Weapon');
 
     // Weapon texture and animations
@@ -24,14 +24,15 @@ WeaponKatana.prototype.create = function(weapon) {
     this.attack_key = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
 };
 
-WeaponKatana.prototype.update = function() {
+LocalWeapon.prototype.update = function() {
     this.weaponControls();
     this.weaponPhysics();
 };
 
-WeaponKatana.prototype.weaponControls = function() {
+LocalWeapon.prototype.weaponControls = function() {
 
     if (this.attack_key.isDown) {
+        socket.emit('attack player', { attack: true});
         this.katana.animations.play('swing');
     }
     else {
@@ -39,11 +40,11 @@ WeaponKatana.prototype.weaponControls = function() {
     }
 };
 
-WeaponKatana.prototype.weaponPhysics = function() {
+LocalWeapon.prototype.weaponPhysics = function() {
     
     // First check if the player is attacking
     if (this.attack_key.isDown) {
-        // Then check if the weapon is touching any of the other players 
+        // Then check if the weapon is touching any of the other players
         for (var i = 0; i < remotePlayers.length; i++) {
             // If it is...
             if (this.game.physics.arcade.overlap(this.katana, remotePlayers[i].player, null, null, this)) {
@@ -54,6 +55,6 @@ WeaponKatana.prototype.weaponPhysics = function() {
     }
 };
 
-WeaponKatana.prototype.damageOtherPlayer = function(remotePlayer) {
+LocalWeapon.prototype.damageOtherPlayer = function(remotePlayer) {
     remotePlayer.damage(1);
 };

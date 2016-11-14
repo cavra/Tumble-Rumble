@@ -60,8 +60,11 @@ function onSocketConnection (client) {
   // Listen for move player message
   client.on('move player', onMovePlayer);
 
-  // Listen for move player message
+  // Listen for damage player message
   client.on('damage player', onDamagePlayer);
+
+  // Listen for attack player message
+  client.on('attack player', onAttackPlayer);
 };
 
 // Socket client has disconnected
@@ -138,6 +141,24 @@ function onDamagePlayer (data) {
 
   // Broadcast updated position to connected socket clients
   this.broadcast.emit('damage player', {id: tempPlayer.id, health: tempPlayer.getHealth()});
+};
+
+// Player is attacking
+function onAttackPlayer (data) {
+  // Find player in array
+  var tempPlayer = playerById(this.id);
+
+  // Player not found
+  if (!tempPlayer) {
+    util.log('Player not found: ' + this.id);
+    return;
+  }
+
+  // Update player health
+  tempPlayer.setAttack(data.attack);
+
+  // Broadcast updated position to connected socket clients
+  this.broadcast.emit('attack player', {id: tempPlayer.id, attack: tempPlayer.getAttack()});
 };
 
 /* ************************************************

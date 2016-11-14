@@ -13,7 +13,7 @@ LocalPlayer.prototype.create = function() {
     this.tumbler.create();
 
     // Player's weapon
-    this.weapon = new WeaponKatana(this.game); 
+    this.weapon = new LocalWeapon(this.game); 
     this.weapon.create();
     this.tumbler.playerSprite.addChild(this.weapon.katana);
 
