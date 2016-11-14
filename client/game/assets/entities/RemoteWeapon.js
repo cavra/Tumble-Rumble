@@ -7,8 +7,9 @@ RemoteWeapon.prototype.create = function(weapon) {
 
     // Weapon texture and animations
     this.katana = this.game.add.sprite(null, null, 'weapon_katana');
-    this.katana.animations.add('float', Phaser.Animation.generateFrameNames('Katana', 1, 1), 5, true);
-    this.katana.animations.add('swing', Phaser.Animation.generateFrameNames('Katana', 1, 4), 15, false);
+    this.katana.animations.add('float', ["Katana1"], 5, true);
+    this.katana.animations.add('swing', ["Katana1", "Katana2", "Katana3", "Katana4", "Katana3", "Katana2", "Katana1"], 15, false);
+    this.katana.animations.play('float');
 
     // Weapon's appearance
     this.katana.scale.setTo(-0.5, 0.5);

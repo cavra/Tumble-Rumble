@@ -28,6 +28,8 @@ RemotePlayer.prototype.create = function (index, x, y) {
     // Player's location
     this.x = this.tumbler.x;
     this.y = this.tumbler.y;
+    this.lastX = this.tumbler.x;
+    this.lastY = this.tumbler.y;
 
     this.player = this.tumbler.playerSprite;
     this.hitbox = this.tumbler.playerSprite;
@@ -42,6 +44,18 @@ RemotePlayer.prototype.update = function () {
     // Update player's location
     this.x = this.tumbler.x;
     this.y = this.tumbler.y;
+
+    // Update the player's facing direction
+    if (this.lastX != this.x) {
+        if (this.lastX > this.x) {
+            this.tumbler.playerSprite.scale.x = 0.5;
+        }
+        else {
+            this.tumbler.playerSprite.scale.x = -0.5;
+        }
+        this.lastX = this.x;
+        this.lastY = this.y;
+    }
 
     // Handle death
 	if (this.health <= 0 && this.alive) {
