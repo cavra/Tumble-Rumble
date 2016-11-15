@@ -84,12 +84,15 @@ LocalPlayer.prototype.playerControls = function() {
         this.tumbler.playerSprite.animations.play('standing');
     }
 
-    // Handle jumping
+    // Jump (needs work)
     if (this.cursors.up.isDown) {
-        // Add upwards velocity
-        this.tumbler.playerSprite.body.velocity.y = -300;
+        this.tumbler.playerSprite.body.allowGravity = false;  
+        this.tumbler.playerSprite.body.velocity.y = -480;
     }
-
+    else {
+        this.tumbler.playerSprite.body.allowGravity = true;
+    }
+    
     // Handle death
     if (this.health <= 0) {
         this.die();
