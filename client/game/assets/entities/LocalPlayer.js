@@ -27,7 +27,6 @@ LocalPlayer.prototype.create = function() {
     this.y = this.tumbler.y;
 
     // Timers
-    this.playerJumpTimer = 0;
     this.invincibleTimer = 0;
 
     // Controls
@@ -81,19 +80,17 @@ LocalPlayer.prototype.playerControls = function() {
     else {
         //slow the player to a stop
         this.tumbler.playerSprite.body.acceleration.x = 0;
-        this.tumbler.playerSprite.body.drag.x = 2000;
+        this.tumbler.playerSprite.body.drag.x = 2500;
         this.tumbler.playerSprite.animations.play('standing');
     }
 
-    // Jump (needs work)
+    // Handle jumping
     if (this.cursors.up.isDown) {
-        this.tumbler.playerSprite.body.allowGravity = false;  
-        this.tumbler.playerSprite.body.velocity.y = -480;
-    }
-    else {
-        this.tumbler.playerSprite.body.allowGravity = true;
+        // Add upwards velocity
+        this.tumbler.playerSprite.body.velocity.y = -300;
     }
 
+    // Handle death
     if (this.health <= 0) {
         this.die();
     }
