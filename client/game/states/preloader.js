@@ -73,11 +73,23 @@ TumbleRumble.preloader.prototype = {
 		// Tilemaps		
 		this.load.tilemap('arena1', 'game/assets/tilemaps/arena1/arena1.json', null, Phaser.Tilemap.TILED_JSON);
 		this.load.image('tileset1', 'game/assets/tilemaps/arena1/tileset1.png');
+		this.load.image('arenaBackground1', 'game/assets/tilemaps/arena1/background.png');
+
+		this.load.tilemap('arena2', 'game/assets/tilemaps/arena2/arena2.json', null, Phaser.Tilemap.TILED_JSON);
+		this.load.image('tileset2', 'game/assets/tilemaps/arena2/tileset1.png');
+		this.load.image('arenaBackground2', 'game/assets/tilemaps/arena2/background.png');
+
+		this.load.tilemap('arena3', 'game/assets/tilemaps/arena3/arena3.json', null, Phaser.Tilemap.TILED_JSON);
+		this.load.image('tileset3', 'game/assets/tilemaps/arena3/tileset1.png');
+		this.load.image('arenaBackground3', 'game/assets/tilemaps/arena2/background.png');
+
+		this.load.tilemap('arena4', 'game/assets/tilemaps/arena4/arena4.json', null, Phaser.Tilemap.TILED_JSON);
+		this.load.image('tileset4', 'game/assets/tilemaps/arena4/tileset1.png');
+		this.load.image('arenaBackground4', 'game/assets/tilemaps/arena2/background.png');
 
 	},
-	
-	preload_player: function() {
 
+	preload_player: function() {
 		// Player
 		this.game.load.spritesheet('tumbleweed', 'game/assets/textures/player/tumbleweed.png', 64, 64);
 
@@ -95,8 +107,7 @@ TumbleRumble.preloader.prototype = {
 	update: function() {
 
 		// If the music is ready to play, start the main menu
-		if (this.cache.isSoundDecoded('welcome_music'))
-		{
+		if (this.cache.isSoundDecoded('welcome_music')) {
 			this.state.start('welcome');
 		}
 	}
