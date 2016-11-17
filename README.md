@@ -50,7 +50,7 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 [Google Doc](weAreStillWorkingOnThis)
 
-[Change Log](weAreStillWorkingOnThis)
+[Change Log](https://docs.google.com/document/d/1nM5Jnp4wvHg19K2eCLouy3HUFpQ7Jray0x58PhVhsKA/edit)
 
 ### Delierable 5 (Functional Specification Revision)
 
