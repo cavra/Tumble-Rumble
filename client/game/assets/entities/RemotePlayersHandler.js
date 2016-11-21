@@ -31,6 +31,9 @@ RemotePlayersHandler.prototype.setEventHandlers = function () {
     // Player death message received
     socket.on('kill player', this.onKillPlayer);
 
+    // Player death message received
+    socket.on('winner', this.onWinner);
+
     // Player removed message received
     socket.on('remove player', this.onRemovePlayer);
 };
@@ -111,6 +114,7 @@ RemotePlayersHandler.prototype.onKillPlayer = function (data) {
 
     // Update player health
     tempPlayer.die();
+    someoneDied = true;
 };
 
 RemotePlayersHandler.prototype.onRemovePlayer = function (data) {
@@ -127,6 +131,10 @@ RemotePlayersHandler.prototype.onRemovePlayer = function (data) {
 
     // Remove player from array
     remotePlayers.splice(remotePlayers.indexOf(tempPlayer), 1);
+};
+
+RemotePlayersHandler.prototype.onWinner = function () {
+    myGame.state.start('results');
 };
 
 RemotePlayersHandler.prototype.update = function () {

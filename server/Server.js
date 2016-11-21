@@ -65,6 +65,8 @@ function onSocketConnection (client) {
 
   // Listen for death player message
   client.on('kill player', onKillPlayer);
+
+  client.on('winner', onWinner);
 };
 
 // Socket client has disconnected
@@ -136,7 +138,6 @@ function onAttackPlayer (data) {
     return;
   }
 
-  // Broadcast updated position to connected socket clients
   this.broadcast.emit('attack player', {id: tempPlayer.id});
 };
 
@@ -151,8 +152,21 @@ function onKillPlayer (data) {
     return;
   }
 
-  // Broadcast updated position to connected socket clients
   this.broadcast.emit('kill player', {id: tempPlayer.id});
+};
+
+// Only one player left, game is over
+function onWinner (data) {
+  // Find player in array
+  var tempPlayer = playerById(this.id);
+
+  // Player not found
+  if (!tempPlayer) {
+    util.log('Player not found: ' + this.id);
+    return;
+  }
+
+  this.broadcast.emit('winner', {id: tempPlayer.id});
 };
 
 /* ************************************************

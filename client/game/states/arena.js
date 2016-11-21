@@ -7,6 +7,7 @@ var myGame;
 var remotePlayersHandler;
 var remotePlayers;
 var player;
+var someoneDied = false;
 
 TumbleRumble.arena.prototype = {
 
@@ -40,6 +41,10 @@ TumbleRumble.arena.prototype = {
 
     // Update all remote players
     remotePlayersHandler.update();
-  },
 
+    if (someoneDied && remotePlayers.length < 2) {
+        socket.emit('winner');
+        this.state.start('results');
+    }
+  },
 };
