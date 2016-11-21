@@ -1,18 +1,11 @@
-function RemotePlayersHandler(game) {
+function SocketHandler(game) {
     this.game = game;
-    remotePlayers = [];
-
-    // var playerById = function (id) {
-    //     for (var i = 0; i < remotePlayers.length; i++) {
-    //         if (remotePlayers[i].name === id) {
-    //             return remotePlayers[i];
-    //             }
-    //         }
-    //     return false;
-    // };
 };
 
-RemotePlayersHandler.prototype.setEventHandlers = function () {
+var remotePlayers = [];
+
+SocketHandler.prototype.setEventHandlers = function (game) {
+
     // Socket connection successful
     socket.on('connect', this.onSocketConnected);
 
@@ -34,11 +27,17 @@ RemotePlayersHandler.prototype.setEventHandlers = function () {
     // Player death message received
     socket.on('winner', this.onWinner);
 
+    // Player death message received
+    socket.on('cactus door', this.onCactusDoor);
+
+    // Player death message received
+    socket.on('client count', this.onClientCount);
+
     // Player removed message received
     socket.on('remove player', this.onRemovePlayer);
 };
 
-RemotePlayersHandler.prototype.onSocketConnected = function () {
+SocketHandler.prototype.onSocketConnected = function () {
     console.log('Connected to socket server');
 
     // Reset remotePlayers on reconnect...?
@@ -48,14 +47,14 @@ RemotePlayersHandler.prototype.onSocketConnected = function () {
     remotePlayers = [];
 
     // Send local player data to the game server
-    socket.emit('new player', { x: player.x, y: player.y});
+    socket.emit('new connection');
 };
 
-RemotePlayersHandler.prototype.onSocketDisconnect = function () {
+SocketHandler.prototype.onSocketDisconnect = function () {
     console.log('Disconnected from socket server');
 };
 
-RemotePlayersHandler.prototype.onNewPlayer = function (data) {
+SocketHandler.prototype.onNewPlayer = function (data) {
     console.log('New player connected:', data.id);
 
     // Avoid possible duplicate players
@@ -73,7 +72,7 @@ RemotePlayersHandler.prototype.onNewPlayer = function (data) {
     remotePlayers.push(newRemotePlayer);
 };
 
-RemotePlayersHandler.prototype.onMovePlayer = function (data) {
+SocketHandler.prototype.onMovePlayer = function (data) {
     //console.log('onMove called on player:', data.id);
     var tempPlayer = playerById(data.id);
 
@@ -88,7 +87,7 @@ RemotePlayersHandler.prototype.onMovePlayer = function (data) {
     tempPlayer.player.y = data.y;
 };
 
-RemotePlayersHandler.prototype.onAttackPlayer = function (data) {
+SocketHandler.prototype.onAttackPlayer = function (data) {
     //console.log('onAttack called on player: ', data.id);
     var tempPlayer = playerById(data.id);
 
@@ -102,7 +101,7 @@ RemotePlayersHandler.prototype.onAttackPlayer = function (data) {
     tempPlayer.attack();
 };
 
-RemotePlayersHandler.prototype.onKillPlayer = function (data) {
+SocketHandler.prototype.onKillPlayer = function (data) {
     //console.log('onDamagePlayer called on player: ', data.id);
     var tempPlayer = playerById(data.id);
 
@@ -117,7 +116,7 @@ RemotePlayersHandler.prototype.onKillPlayer = function (data) {
     someoneDied = true;
 };
 
-RemotePlayersHandler.prototype.onRemovePlayer = function (data) {
+SocketHandler.prototype.onRemovePlayer = function (data) {
     var tempPlayer = playerById(data.id);
 
     // Player not found
@@ -133,11 +132,23 @@ RemotePlayersHandler.prototype.onRemovePlayer = function (data) {
     remotePlayers.splice(remotePlayers.indexOf(tempPlayer), 1);
 };
 
-RemotePlayersHandler.prototype.onWinner = function () {
+SocketHandler.prototype.onWinner = function () {
     myGame.state.start('results');
 };
 
-RemotePlayersHandler.prototype.update = function () {
+SocketHandler.prototype.onCactusDoor = function (data) {
+    console.log('Cactus door number: ', data.door);
+    door = data.door;
+    addWall = true;
+};
+
+SocketHandler.prototype.onClientCount = function (data) {
+    console.log("Number of clients: ", data.clientCount);
+    clientCount = data.clientCount;
+    checkClientCount = true;
+};
+
+SocketHandler.prototype.update = function () {
     // Update all remote players
     for (var i = 0; i < remotePlayers.length; i++) {
       remotePlayers[i].update();
@@ -145,7 +156,7 @@ RemotePlayersHandler.prototype.update = function () {
 };
 
 // // Prototypes don't return anything?
-// RemotePlayersHandler.prototype.playerById = function (id) {
+// SocketHandler.prototype.playerById = function (id) {
 //   for (var i = 0; i < remotePlayers.length; i++) {
 //     if (remotePlayers[i].name === id) {
 //       return remotePlayers[i];

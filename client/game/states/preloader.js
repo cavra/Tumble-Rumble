@@ -1,28 +1,21 @@
-TumbleRumble.preloader = function(game) {
-
-	this.background = null;
-	this.loading_bar = null;
-	
-};
+TumbleRumble.preloader = function(game) {};
 
 TumbleRumble.preloader.prototype = {
 
 	preload: function() {
+        console.log('Preloading assets...');
 		
 		this.show_preload_screen();
 
 		// Game States
-		this.preload_welcome();
+		this.preload_menu();
 		this.preload_lobby();
-		this.preload_selection();
-		this.preload_arena();
+		this.preload_stage();
 		this.preload_results();
-		this.preload_settings();
 
 		// Game Objects
-		this.preload_arenas();
+		this.preload_stages();
 		this.preload_player();
-
 	},
 	
 	show_preload_screen: function() {
@@ -33,30 +26,32 @@ TumbleRumble.preloader.prototype = {
 		
 		// Loads a portion of the image corresponding to amount of assets loaded below
 		this.load.setPreloadSprite(this.loading_bar);
-	
 	},
 
-	preload_welcome: function() {
+	preload_menu: function() {
 
 		// Background
-		this.load.image('welcome_background', 'game/assets/textures/GUI/welcome_screen.png');
+		this.load.image('menu_background', 'game/assets/textures/GUI/welcome_screen.png');
 		
 		// GUI
-		this.load.spritesheet('welcome_play_button', 'game/assets/textures/GUI/begin_button.png', 64, 23);
+		this.load.spritesheet('menu_play_button', 'game/assets/textures/GUI/begin_button.png', 64, 23);
 		
 		// Music
-		this.load.audio('welcome_music', ['game/assets/sounds/welcome.wav']);	
+		this.load.audio('menu_music', ['game/assets/sounds/welcome.wav']);	
 	},
-
+	
 	preload_lobby: function() {
-	
-	},
-	
-	preload_selection: function() {
-	
+		// Background
+		this.load.image('lobby_background', 'game/assets/textures/GUI/lobby_screen.png');
+		
+		// GUI
+		this.load.spritesheet('lobby_play_button', 'game/assets/textures/GUI/begin_button.png', 64, 23);
+		
+		// Music
+		this.load.audio('lobby_music', ['game/assets/sounds/welcome.wav']);		
 	},
 
-	preload_arena: function() {
+	preload_stage: function() {
 	
 	},
 
@@ -64,11 +59,7 @@ TumbleRumble.preloader.prototype = {
 	
 	},
 
-	preload_settings: function() {
-	
-	},
-
-	preload_arenas: function() {
+	preload_stages: function() {
 		
 		// Tilemaps		
 		this.load.tilemap('arena1', 'game/assets/tilemaps/arena1/arena1.json', null, Phaser.Tilemap.TILED_JSON);
@@ -107,8 +98,8 @@ TumbleRumble.preloader.prototype = {
 	update: function() {
 
 		// If the music is ready to play, start the main menu
-		if (this.cache.isSoundDecoded('welcome_music')) {
-			this.state.start('welcome');
+		if (this.cache.isSoundDecoded('menu_music')) {
+			this.state.start('menu');
 		}
 	}
 

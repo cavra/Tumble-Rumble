@@ -5,59 +5,40 @@ function LocalPlayer(game) {
 LocalPlayer.prototype.create = function() {
     console.log('Creating Local Player', this);
 
-    // General values
-    this.name = "MainUser";
-
     // Player's main sprite
     this.tumbler = new Tumbler(this.game);
     this.tumbler.create();
 
-    // Player's weapon
-    this.weapon = new LocalWeapon(this.game); 
-    this.weapon.create();
-    this.tumbler.playerSprite.addChild(this.weapon.katana);
+    // Send local player data to the game server
+    socket.emit('new player', {x: this.tumbler.playerSprite.x, y: this.tumbler.playerSprite.y});
 
     // Player's custom values
     this.alive = true;
     this.health = 100;
-    this.playerState = "idle";
-
-    // Player's location
-    this.x = this.tumbler.x;
-    this.y = this.tumbler.y;
+    this.player = this.tumbler.playerSprite;
 
     // Timers
     this.invincibleTimer = 0;
 
     // Controls
     this.cursors = this.game.input.keyboard.createCursorKeys();
-
-    this.player = this.tumbler.playerSprite;
 };
 
 LocalPlayer.prototype.update = function() {
 
     if (this.alive) {
         // Tell the server we are moving our player
-        socket.emit('move player', { x: player.x, y: player.y});
+        socket.emit('move player', {x: this.tumbler.playerSprite.x, y: this.tumbler.playerSprite.y});
 
         // Handle user input
         this.playerControls();
 
         // Update the player components
         this.tumbler.update();
-        this.weapon.update();
-
-        // Update player's location
-        this.x = this.tumbler.x;
-        this.y = this.tumbler.y;
 
         // Handle death
-        if (this.health <= 0 && this.alive) {
-            console.log('Player died: ', this.name);
-            this.alive = false;
-            this.tumbler.playerSprite.body = null;
-            this.tumbler.playerSprite.kill();
+        if (this.health <= 0) {
+            this.die();
         }
     }
 };
@@ -67,13 +48,13 @@ LocalPlayer.prototype.playerControls = function() {
     // Move Left
     if (this.cursors.left.isDown) {
         this.tumbler.playerSprite.body.acceleration.x = -1000
-        this.tumbler.playerSprite.scale.x = 0.5;
+        this.tumbler.playerSprite.scale.x = 1;
         this.tumbler.playerSprite.animations.play('tumble');
     }
     // Move Right
     else if (this.cursors.right.isDown) {
         this.tumbler.playerSprite.body.acceleration.x = 1000;
-        this.tumbler.playerSprite.scale.x = -0.5;
+        this.tumbler.playerSprite.scale.x = -1;
         this.tumbler.playerSprite.animations.play('tumble');
     }
     // Slow to a stop
@@ -81,7 +62,7 @@ LocalPlayer.prototype.playerControls = function() {
         //slow the player to a stop
         this.tumbler.playerSprite.body.acceleration.x = 0;
         this.tumbler.playerSprite.body.drag.x = 2500;
-        this.tumbler.playerSprite.animations.play('standing');
+        //this.tumbler.playerSprite.animations.play('standing');
     }
 
     // Jump (needs work)
@@ -91,11 +72,6 @@ LocalPlayer.prototype.playerControls = function() {
     }
     else {
         this.tumbler.playerSprite.body.allowGravity = true;
-    }
-    
-    // Handle death
-    if (this.health <= 0) {
-        this.die();
     }
 };
 

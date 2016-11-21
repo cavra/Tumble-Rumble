@@ -1,8 +1,5 @@
 function RemotePlayer(game) {
     this.game = game;
-
-    // Create the group
-    this.remotePlayersGroup = this.game.add.group();
 };
 
 RemotePlayer.prototype.create = function (index, x, y) {
@@ -15,11 +12,6 @@ RemotePlayer.prototype.create = function (index, x, y) {
     this.tumbler = new Tumbler(this.game);
     this.tumbler.create();
 
-    // Player's weapon
-    this.weapon = new RemoteWeapon(this.game); 
-    this.weapon.create();
-    this.tumbler.playerSprite.addChild(this.weapon.katana);
-
     // Player's custom values
     this.alive = true;
     this.health = 100;
@@ -27,33 +19,30 @@ RemotePlayer.prototype.create = function (index, x, y) {
     this.invincibleTimer = 0;
 
     // Player's location
-    this.x = this.tumbler.x;
-    this.y = this.tumbler.y;
-    this.lastX = this.tumbler.x;
-    this.lastY = this.tumbler.y;
+    this.x = this.tumbler.playerSprite.x;
+    this.y = this.tumbler.playerSprite.y;
+    this.lastX = this.x;
+    this.lastY = this.y;
 
     this.player = this.tumbler.playerSprite;
-    this.hitbox = this.tumbler.playerSprite;
-
 };
 
 RemotePlayer.prototype.update = function () {
 
 	// Update the player components
 	this.tumbler.update();
-    this.weapon.update();
 
     // Update player's location
-    this.x = this.tumbler.x;
-    this.y = this.tumbler.y;
+    this.x = this.tumbler.playerSprite.x;
+    this.y = this.tumbler.playerSprite.y;
 
     // Update the player's facing direction
     if (this.lastX != this.x) {
         if (this.lastX > this.x) {
-            this.tumbler.playerSprite.scale.x = 0.5;
+            this.tumbler.playerSprite.scale.x = 1;
         }
         else {
-            this.tumbler.playerSprite.scale.x = -0.5;
+            this.tumbler.playerSprite.scale.x = -1;
         }
         this.lastX = this.x;
         this.lastY = this.y;

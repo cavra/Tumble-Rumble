@@ -8,6 +8,8 @@ var Player = require('./Player');
 
 var port = process.env.PORT || 13310;
 
+var clientCount = 0;
+
 /* ************************************************
 ** GAME VARIABLES
 ************************************************ */
@@ -45,11 +47,25 @@ function init () {
 var setEventHandlers = function () {
   // Socket.IO
   socket.sockets.on('connection', onSocketConnection);
+
+  var timer = setInterval(sendCactusDoor, 2000);
+};
+
+function sendCactusDoor () {  
+  var min = Math.ceil(1);
+  var max = Math.floor(10);
+  var door = Math.floor(Math.random() * (max - min)) + min;  
+
+  socket.sockets.emit('cactus door', {door: door});
 };
 
 // New socket connection
 function onSocketConnection (client) {
   util.log('New player has connected: ' + client.id);
+
+  // Increment the client counter and tell all sockets
+  clientCount++;
+  socket.sockets.emit('client count', {clientCount: clientCount});
 
   // Listen for client disconnected
   client.on('disconnect', onClientDisconnect);
@@ -72,6 +88,10 @@ function onSocketConnection (client) {
 // Socket client has disconnected
 function onClientDisconnect () {
   util.log('Player has disconnected: ' + this.id);
+
+  // Increment the client counter and tell all sockets
+  clientCount--;
+  socket.sockets.emit('client count', {clientCount: clientCount});
 
   var removePlayer = playerById(this.id);
 

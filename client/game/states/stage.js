@@ -1,34 +1,29 @@
-TumbleRumble.arena = function(game) {};
+TumbleRumble.stage = function(game) {};
 
 // Global Variables
-var socket;
 var myGame; 
 
-var remotePlayersHandler;
-var remotePlayers;
 var player;
 var someoneDied = false;
 
-TumbleRumble.arena.prototype = {
+var door;
+var addWall = false;
+
+TumbleRumble.stage.prototype = {
 
   create: function() {
-    console.log('Running Arena Game State');
+    console.log('Entered Stage');
 
     // Take care of basic stuff
     myGame = this.game;
-    socket = io.connect();
 
     // Start the music
     this.music = this.add.audio('welcome_music', 0.5, true);
     this.music.play();
 
-    // Build the world
-    tilemapHandler = new TilemapHandler(this.game);
-    tilemapHandler.buildArena2();
-
-    // Initiate the remote players handler
-    remotePlayersHandler = new RemotePlayersHandler(this.game, player);
-    remotePlayersHandler.setEventHandlers();
+    // Initiate the Stage Handler
+    stageHandler = new StageHandler(this.game);
+    stageHandler.constructStage();
 
     // Spawn the local player
     player = new LocalPlayer(this.game);
@@ -40,8 +35,12 @@ TumbleRumble.arena.prototype = {
     player.update();
 
     // Update all remote players
-    remotePlayersHandler.update();
+    socketHandler.update();
 
+    // Update the stage
+    stageHandler.update();
+
+    // Check for a winner
     if (someoneDied && remotePlayers.length < 2) {
         socket.emit('winner');
         this.state.start('results');

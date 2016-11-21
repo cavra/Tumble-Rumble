@@ -1,11 +1,9 @@
-TumbleRumble.results = function(game) {
-
-};
+TumbleRumble.results = function(game) {};
 
 TumbleRumble.results.prototype = {
 
 	create: function() {
-		console.log("results state loaded");
+        console.log('Entered Results');
 	},
 
 	update: function() {

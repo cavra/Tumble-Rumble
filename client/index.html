@@ -17,16 +17,15 @@
     <!-- Game States -->
     <script src="game/states/boot.js"></script>
     <script src="game/states/preloader.js"></script>
-    <script src="game/states/welcome.js"></script>
+    <script src="game/states/menu.js"></script>
     <script src="game/states/lobby.js"></script>
-    <script src="game/states/selection.js"></script>
-    <script src="game/states/arena.js"></script>
+    <script src="game/states/stage.js"></script>
     <script src="game/states/results.js"></script>
-    <script src="game/states/settings.js"></script>
 
     <!-- Game Handlers -->
-    <script src='game/assets/tilemaps/TilemapHandler.js'></script>
-    <script src='game/assets/entities/RemotePlayersHandler.js'></script>
+    <script src='game/handlers/SocketHandler.js'></script>
+    <script src='game/handlers/StageHandler.js'></script>
+    <script src='game/handlers/TilemapHandler.js'></script>
 
     <!-- Game Entities -->
     <script src="game/assets/entities/LocalPlayer.js"></script>
@@ -48,11 +47,9 @@
 
       game.state.add('boot', TumbleRumble.boot);
       game.state.add('preloader', TumbleRumble.preloader);
-      game.state.add('welcome', TumbleRumble.welcome);
+      game.state.add('menu', TumbleRumble.menu);
       game.state.add('lobby', TumbleRumble.lobby);
-      game.state.add('settings', TumbleRumble.settings);
-      game.state.add('selection', TumbleRumble.selection);
-      game.state.add('arena', TumbleRumble.arena);
+      game.state.add('stage', TumbleRumble.stage);
       game.state.add('results', TumbleRumble.results);
 
       game.state.start('boot');
