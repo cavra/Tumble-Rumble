@@ -5,20 +5,20 @@ TumbleRumble.preloader.prototype = {
 	preload: function() {
         console.log('Preloading assets...');
 		
-		this.show_preload_screen();
+		this.displayPreloader();
 
 		// Game States
-		this.preload_menu();
-		this.preload_lobby();
-		this.preload_stage();
-		this.preload_results();
+		this.preloadMenu();
+		this.preloadLobby();
+		this.preloadStage();
+		this.preloadResults();
 
 		// Game Objects
-		this.preload_stages();
-		this.preload_player();
+		this.preloadStages();
+		this.preloadPlayer();
 	},
 	
-	show_preload_screen: function() {
+	displayPreloader: function() {
 
 		// Has to be in preload, because it won't create the sprite otherwise
 		this.background = this.add.sprite(0, 0, 'preloadBackground');
@@ -32,38 +32,38 @@ TumbleRumble.preloader.prototype = {
 		this.load.setPreloadSprite(this.loadingBar);
 	},
 
-	preload_menu: function() {
+	preloadMenu: function() {
 
 		// Background
-		this.load.image('menu_background', 'game/assets/textures/GUI/welcomeBackground.png');
+		this.load.image('menuBackground', 'game/assets/textures/GUI/welcomeBackground.png');
 		
 		// GUI
-		this.load.spritesheet('menu_play_button', 'game/assets/textures/GUI/beginButton.png', 64, 23);
+		this.load.spritesheet('menuPlayButton', 'game/assets/textures/GUI/beginButton.png', 64, 23);
 		
 		// Music
-		this.load.audio('menu_music', ['game/assets/sounds/welcome.wav']);	
+		this.load.audio('menuMusic', ['game/assets/sounds/welcome.wav']);	
 	},
 	
-	preload_lobby: function() {
+	preloadLobby: function() {
 		// Background
-		this.load.image('lobby_background', 'game/assets/textures/GUI/lobbyBackground.png');
+		this.load.image('lobbyBackground', 'game/assets/textures/GUI/lobbyBackground.png');
 		
 		// GUI
-		this.load.spritesheet('lobby_play_button', 'game/assets/textures/GUI/beginButton.png', 64, 23);
+		this.load.spritesheet('lobbyPlayButton', 'game/assets/textures/GUI/beginButton.png', 64, 23);
 		
 		// Music
-		this.load.audio('lobby_music', ['game/assets/sounds/welcome.wav']);		
+		this.load.audio('lobbyMusic', ['game/assets/sounds/welcome.wav']);		
 	},
 
-	preload_stage: function() {
+	preloadStage: function() {
 		this.load.image('cactus', 'game/assets/textures/world/cactus.png');
 	},
 
-	preload_results: function() {
+	preloadResults: function() {
 	
 	},
 
-	preload_stages: function() {
+	preloadStages: function() {
 		
 		// Tilemaps		
 		this.load.tilemap('arena1', 'game/assets/tilemaps/arena1/arena1.json', null, Phaser.Tilemap.TILED_JSON);
@@ -84,7 +84,7 @@ TumbleRumble.preloader.prototype = {
 
 	},
 
-	preload_player: function() {
+	preloadPlayer: function() {
 		// Player
 		this.game.load.spritesheet('tumbleweed', 'game/assets/textures/player/tumbleweed.png', 64, 64);
 
@@ -105,7 +105,7 @@ TumbleRumble.preloader.prototype = {
 	update: function() {
 
 		// If the music is ready to play, start the main menu
-		if (this.cache.isSoundDecoded('menu_music')) {
+		if (this.cache.isSoundDecoded('menuMusic')) {
 			this.state.start('menu');
 		}
 	}

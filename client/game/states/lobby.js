@@ -18,6 +18,13 @@ TumbleRumble.lobby.prototype = {
 	    socketHandler = new SocketHandler(this.game);
 	    socketHandler.setEventHandlers(this.game);
 
+		// Background
+		this.add.sprite(0, 0, 'lobbyBackground');
+		
+		// Music
+		this.music = this.add.audio('lobbyMusic', 0.5, true);
+		this.music.play();
+
 	    this.createText();
 	    this.createButtons();
 	},
@@ -46,10 +53,9 @@ TumbleRumble.lobby.prototype = {
 
 	createButtons: function() {
 		// Button
-		this.playButton = this.add.button(600, 470, 'menu_play_button', this.startGame, this, 1, 0, 0);
+		this.playButton = this.add.button(600, 470, 'lobbyPlayButton', this.startGame, this, 1, 0, 0);
 	    this.playButton.scale.set(3);
 	    this.playButton.buttonMode = true;
-		//this.playButton.setOverSound(sound, marker);
 
 		// Rectangle for button (forgot what this does?)
 	    this.playButtonHitBox = new Phaser.Rectangle(this.playButton.x, this.playButton.y, this.playButton.width, this.playButton.height);
@@ -65,6 +71,7 @@ TumbleRumble.lobby.prototype = {
 	},
 
 	startGame: function() {
+		this.music.stop();
 		this.state.start('stage');
 	},
 
