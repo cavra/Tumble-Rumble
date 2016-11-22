@@ -43,6 +43,8 @@ TumbleRumble.stage.prototype = {
         // Check for game over
         if (someoneDied && remotePlayers.length < 2) {
             socket.emit('winner');
+            this.destructor();
+            
             if (player.alive) {
                 this.state.start('results', true, true, true);
             }

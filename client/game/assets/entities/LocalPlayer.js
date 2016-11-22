@@ -60,7 +60,7 @@ LocalPlayer.prototype.update = function() {
 
 LocalPlayer.prototype.playerControls = function() {
 
-     if (this.tumbler.playerSprite.angle < 20 && !this.tumbler.playerSprite.body.touching.down) {
+     if (this.tumbler.playerSprite.angle < 0 && !this.tumbler.playerSprite.body.touching.down) {
             this.tumbler.playerSprite.angle += 1;
      }
 
@@ -88,7 +88,7 @@ LocalPlayer.prototype.playerControls = function() {
     if (this.cursors.up.isDown) {
         this.tumbler.playerSprite.body.allowGravity = false;  
         this.tumbler.playerSprite.body.velocity.y = -480;
-        this.game.add.tween(this.tumbler.playerSprite).to({angle: -20}, 100).start();
+        this.game.add.tween(this.tumbler.playerSprite).to({angle: -30}, 100).start();
     }
     else {
         this.tumbler.playerSprite.body.allowGravity = true;
