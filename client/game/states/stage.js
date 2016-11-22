@@ -9,6 +9,8 @@ var someoneDied = false;
 var door;
 var addWall = false;
 
+var isWinner = false;
+
 TumbleRumble.stage.prototype = {
 
   create: function() {
@@ -40,10 +42,15 @@ TumbleRumble.stage.prototype = {
     // Update the stage
     stageHandler.update();
 
-    // Check for a winner
+    // Check for game over
     if (someoneDied && remotePlayers.length < 2) {
         socket.emit('winner');
-        this.state.start('results');
+        if (player.alive) {
+            this.state.start('results', true, false, true);
+        }
+        else {
+            this.state.start('results', true, false, false)
+        }
     }
   },
 };

@@ -19,13 +19,13 @@ SocketHandler.prototype.setEventHandlers = function (game) {
     socket.on('move player', this.onMovePlayer);
 
     // Player attack message received
+    socket.on('take damage', this.onTakeDamage);
+
+    // Player attack message received
     socket.on('attack player', this.onAttackPlayer);
 
     // Player death message received
     socket.on('kill player', this.onKillPlayer);
-
-    // Player death message received
-    socket.on('winner', this.onWinner);
 
     // Player death message received
     socket.on('cactus door', this.onCactusDoor);
@@ -87,6 +87,20 @@ SocketHandler.prototype.onMovePlayer = function (data) {
     tempPlayer.player.y = data.y;
 };
 
+SocketHandler.prototype.onTakeDamage = function (data) {
+    //console.log('Take Damage called on player: ', data.id);
+    var tempPlayer = playerById(data.id);
+
+    // Player not found
+    if (!tempPlayer) {
+      console.log('Player not found: ', data.id);
+      return;
+    }
+
+    // Cause the player to attack
+    tempPlayer.takeDamage();
+};
+
 SocketHandler.prototype.onAttackPlayer = function (data) {
     //console.log('onAttack called on player: ', data.id);
     var tempPlayer = playerById(data.id);
@@ -113,7 +127,6 @@ SocketHandler.prototype.onKillPlayer = function (data) {
 
     // Update player health
     tempPlayer.die();
-    someoneDied = true;
 };
 
 SocketHandler.prototype.onRemovePlayer = function (data) {
@@ -132,12 +145,8 @@ SocketHandler.prototype.onRemovePlayer = function (data) {
     remotePlayers.splice(remotePlayers.indexOf(tempPlayer), 1);
 };
 
-SocketHandler.prototype.onWinner = function () {
-    myGame.state.start('results');
-};
-
 SocketHandler.prototype.onCactusDoor = function (data) {
-    console.log('Cactus door number: ', data.door);
+    //console.log('Cactus door number: ', data.door);
     door = data.door;
     addWall = true;
 };

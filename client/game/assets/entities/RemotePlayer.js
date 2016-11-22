@@ -14,9 +14,6 @@ RemotePlayer.prototype.create = function (index, x, y) {
 
     // Player's custom values
     this.alive = true;
-    this.health = 100;
-    this.playerState = "idle";
-    this.invincibleTimer = 0;
 
     // Player's location
     this.x = this.tumbler.playerSprite.x;
@@ -49,35 +46,11 @@ RemotePlayer.prototype.update = function () {
     }
 };
 
-RemotePlayer.prototype.damage = function (damage) {
-    // Timer is already running...
-    if (this.invincibleTimer.seconds > 0.7) {
-        this.invincibleTimer.destroy();
-        
-        // Decrement the health value
-        this.health -= damage;
-        console.log('Player: ', this.name, ' was damaged for: ', damage, ' and has ', this.health, ' health left.');
-        
-        // Tell the server we are damaging the other player
-        socket.emit('damage player', { health: this.health});
-
-        // Restart the timer
-        this.invincibleTimer = this.game.time.create(false);
-        this.invincibleTimer.start();
-    }
-    // Timer is not running (first case only)
-    else if (!this.invincibleTimer.running) {
-
-        // Decrement the health value
-        this.health -= damage;
-        console.log('Player: ', this.name, ' was damaged for: ', damage, ' and has ', this.health, ' health left.');
-        
-        // Tell the server we are damaging the other player
-        socket.emit('damage player', { health: this.health});
-
-        this.invincibleTimer = this.game.time.create(false);
-        this.invincibleTimer.start();
-    }
+RemotePlayer.prototype.takeDamage = function (damage) {
+    this.tumbler.playerSprite.tint = 0x000000;
+    console.log('RemotePlayer: ', this.name, ' was damaged');
+    // Remove the tint after the timer is up
+    this.game.time.events.add(Phaser.Timer.SECOND * 0.7, function() {this.tumbler.playerSprite.tint = 0xFFFFFF;}, this);
 };
 
 RemotePlayer.prototype.attack = function () {
@@ -87,8 +60,12 @@ RemotePlayer.prototype.attack = function () {
 
 RemotePlayer.prototype.die = function () {
     console.log('Player died: ', this.name);
+    
+    someoneDied = true;
+
     this.alive = false;
     this.tumbler.playerSprite.body = null;
+    this.tumbler.playerSprite.destroy(true); // true destroys children
     this.tumbler.playerSprite.kill();
 };
 

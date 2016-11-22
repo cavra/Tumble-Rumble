@@ -77,6 +77,9 @@ function onSocketConnection (client) {
   client.on('move player', onMovePlayer);
 
   // Listen for attack player message
+  client.on('take damage', onTakeDamage);
+
+  // Listen for attack player message
   client.on('attack player', onAttackPlayer);
 
   // Listen for death player message
@@ -145,6 +148,20 @@ function onMovePlayer (data) {
 
   // Broadcast updated position to connected socket clients
   this.broadcast.emit('move player', {id: tempPlayer.id, x: tempPlayer.getX(), y: tempPlayer.getY()});
+};
+
+// Player is attacking
+function onTakeDamage (data) {
+  // Find player in array
+  var tempPlayer = playerById(this.id);
+
+  // Player not found
+  if (!tempPlayer) {
+    util.log('Player not found: ' + this.id);
+    return;
+  }
+
+  this.broadcast.emit('take damage', {id: tempPlayer.id});
 };
 
 // Player is attacking

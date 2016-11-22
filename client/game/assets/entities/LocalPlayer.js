@@ -5,6 +5,8 @@ function LocalPlayer(game) {
 LocalPlayer.prototype.create = function() {
     console.log('Creating Local Player', this);
 
+    this.name = "LocalPlayer";
+
     // Player's main sprite
     this.tumbler = new Tumbler(this.game);
     this.tumbler.create();
@@ -32,6 +34,7 @@ LocalPlayer.prototype.update = function() {
 
         // Handle user input
         this.playerControls();
+        this.playerPhysics();
 
         // Update the player components
         this.tumbler.update();
@@ -75,6 +78,12 @@ LocalPlayer.prototype.playerControls = function() {
     }
 };
 
+LocalPlayer.prototype.playerPhysics = function (damage) {
+    if (this.game.physics.arcade.collide(this.tumbler.playerSprite, cacti, null, null, this)) {
+        this.takeDamage(10);
+    };
+};
+
 LocalPlayer.prototype.takeDamage = function (damage) {
     // Timer is already running...
     if (this.invincibleTimer.seconds > 0.7) {
@@ -85,6 +94,7 @@ LocalPlayer.prototype.takeDamage = function (damage) {
         this.health -= damage;
         this.tumbler.playerSprite.tint = 0x000000;
         console.log('Player: ', this.name, ' was damaged for: ', damage, ' and has ', this.health, ' health left.');
+        socket.emit('take damage', { health: this.health});
         
         // Restart the timer
         this.invincibleTimer = this.game.time.create(false);
@@ -114,6 +124,7 @@ LocalPlayer.prototype.die = function () {
 
     // Tell the server we died
     socket.emit('kill player');
+    someoneDied = true;
 
     this.alive = false;
     this.tumbler.playerSprite.body = null;

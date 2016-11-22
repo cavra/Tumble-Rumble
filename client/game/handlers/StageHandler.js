@@ -9,12 +9,16 @@ StageHandler.prototype.constructStage = function() {
     this.background = this.game.add.tileSprite(0, 0, 1024, 576, 'arenaBackground1');
 
     cacti = this.game.add.group();
+
+    // Give all the clients 5 seconds to properly sync with the server
+    this.ready = false;
+    this.game.time.events.add(5000, function() {this.ready = true}, this);
 };
 
 StageHandler.prototype.addCactiWall = function() {    
     for (var i = 0; i < 10; i++)
         if (i != door && i != door +1) 
-            this.addCactus(1024, i*60);   
+            this.addCactus(1024, i*60);
 };
 
 StageHandler.prototype.addCactus = function(x, y) {
@@ -32,7 +36,7 @@ StageHandler.prototype.addCactus = function(x, y) {
 StageHandler.prototype.update = function() {
     this.background.tilePosition.x -= 2;
 
-    if (addWall) {
+    if (this.ready && addWall) {
         this.addCactiWall();
         addWall = false;
     }

@@ -20,7 +20,7 @@ TumbleRumble.menu.prototype = {
 	createButtons: function() {
 		
 		// Button
-		this.playButton = this.add.button(600, 470, 'menu_play_button', this.startMenu, this, 1, 0, 0);
+		this.playButton = this.add.button(600, 470, 'menu_play_button', this.startLobby, this, 1, 0, 0);
 	    this.playButton.scale.set(3);
 	    this.playButton.buttonMode = true;
 		//this.playButton.setOverSound(sound, marker);
@@ -36,7 +36,7 @@ TumbleRumble.menu.prototype = {
 
 	},
 
-	startMenu: function(pointer) {
+	startLobby: function(pointer) {
 		this.music.stop();
 		this.state.start('lobby');
 	}

@@ -17,6 +17,42 @@ TumbleRumble.lobby.prototype = {
 	    // Initiate the socket handler
 	    socketHandler = new SocketHandler(this.game);
 	    socketHandler.setEventHandlers(this.game);
+
+	    this.createText();
+	    this.createButtons();
+	},
+
+	createText: function () {
+	    var style = {
+	        font: "32px Arial", 
+	        fill: "#FFFFFF", 
+	        align: "left", 
+	        stroke: "black", 
+	        strokeThickness: 3,
+	        wordWrap: false,
+	        wordWrapWidth: 100,
+	        shadowOffsetX: 0,
+	        shadowOffsetY: 0,
+	        shadowColor: "black",
+	        shadowBlur: 10
+	    };
+
+		this.textWait = this.game.add.text(this.game.width/2, this.game.height/2, 'Waiting for other players to join...', style);
+		this.textWait.anchor.set(0.5);
+
+		this.textSolo = this.game.add.text(600, 450, 'Or play Solo', style);
+		this.textSolo.anchor.set(0.5);
+	},
+
+	createButtons: function() {
+		// Button
+		this.playButton = this.add.button(600, 470, 'menu_play_button', this.startGame, this, 1, 0, 0);
+	    this.playButton.scale.set(3);
+	    this.playButton.buttonMode = true;
+		//this.playButton.setOverSound(sound, marker);
+
+		// Rectangle for button (forgot what this does?)
+	    this.playButtonHitBox = new Phaser.Rectangle(this.playButton.x, this.playButton.y, this.playButton.width, this.playButton.height);
 	},
 
 	update: function() {
@@ -24,13 +60,8 @@ TumbleRumble.lobby.prototype = {
 		    if (clientCount > 1) {
 				this.startGame();
 		    }
-		    else {
-		    	// Display text on screen "Waiting for players..."
-		    }
 	    	checkClientCount = false;
 	    }
-
-	    // Display "Play solo" button
 	},
 
 	startGame: function() {
