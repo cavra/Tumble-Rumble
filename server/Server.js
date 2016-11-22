@@ -53,7 +53,7 @@ var setEventHandlers = function () {
 
 function sendCactusDoor () {  
   var min = Math.ceil(1);
-  var max = Math.floor(10);
+  var max = Math.floor(7);
   var door = Math.floor(Math.random() * (max - min)) + min;  
 
   socket.sockets.emit('cactus door', {door: door});

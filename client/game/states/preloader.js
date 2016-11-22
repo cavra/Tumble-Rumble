@@ -21,7 +21,7 @@ TumbleRumble.preloader.prototype = {
 	show_preload_screen: function() {
 
 		// Has to be in preload, because it won't create the sprite otherwise
-		this.background = this.add.sprite(0, 0, 'preload_background');
+		this.background = this.add.sprite(0, 0, 'preloadBackground');
 
 		this.loadingBarBackground = this.add.sprite(this.game.world.centerX - 200, 500, 'loadingBarBackground');
     	this.loadingBarBackground.tint = 0xFFFFFF;
@@ -35,10 +35,10 @@ TumbleRumble.preloader.prototype = {
 	preload_menu: function() {
 
 		// Background
-		this.load.image('menu_background', 'game/assets/textures/GUI/welcome_screen.png');
+		this.load.image('menu_background', 'game/assets/textures/GUI/welcomeBackground.png');
 		
 		// GUI
-		this.load.spritesheet('menu_play_button', 'game/assets/textures/GUI/begin_button.png', 64, 23);
+		this.load.spritesheet('menu_play_button', 'game/assets/textures/GUI/beginButton.png', 64, 23);
 		
 		// Music
 		this.load.audio('menu_music', ['game/assets/sounds/welcome.wav']);	
@@ -46,17 +46,17 @@ TumbleRumble.preloader.prototype = {
 	
 	preload_lobby: function() {
 		// Background
-		//this.load.image('lobby_background', 'game/assets/textures/GUI/lobby_screen.png');
+		this.load.image('lobby_background', 'game/assets/textures/GUI/lobbyBackground.png');
 		
 		// GUI
-		this.load.spritesheet('lobby_play_button', 'game/assets/textures/GUI/begin_button.png', 64, 23);
+		this.load.spritesheet('lobby_play_button', 'game/assets/textures/GUI/beginButton.png', 64, 23);
 		
 		// Music
 		this.load.audio('lobby_music', ['game/assets/sounds/welcome.wav']);		
 	},
 
 	preload_stage: function() {
-	
+		this.load.image('cactus', 'game/assets/textures/world/cactus.png');
 	},
 
 	preload_results: function() {
@@ -89,7 +89,7 @@ TumbleRumble.preloader.prototype = {
 		this.game.load.spritesheet('tumbleweed', 'game/assets/textures/player/tumbleweed.png', 64, 64);
 
 		// Healthbar
-		this.load.image('healthbar', 'game/assets/textures/GUI/healthbar.png');
+		this.load.image('healthbar', 'game/assets/textures/GUI/healthBar.png');
 
 		// Player items
 	    this.load.atlasXML('weapon_katana', 'game/assets/textures/weapons/katana.png', 'game/assets/textures/weapons/katana.xml');

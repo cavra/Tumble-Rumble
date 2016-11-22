@@ -24,9 +24,12 @@ LocalPlayer.prototype.create = function() {
 
     // Timers
     this.invincibleTimer = 0;
+    this.tumbler.playerSprite.checkWorldBounds = true;
+    this.tumbler.playerSprite.events.onOutOfBounds.add(this.die, this);
 
     // Controls
     this.cursors = this.game.input.keyboard.createCursorKeys();
+    //this.setPlayerControls();
 };
 
 LocalPlayer.prototype.update = function() {
@@ -50,6 +53,10 @@ LocalPlayer.prototype.update = function() {
 };
 
 LocalPlayer.prototype.playerControls = function() {
+
+     if (this.tumbler.playerSprite.angle < 20 && !this.tumbler.playerSprite.body.touching.down) {
+            this.tumbler.playerSprite.angle += 1;
+     }
 
     // Move Left
     if (this.cursors.left.isDown) {
@@ -75,6 +82,7 @@ LocalPlayer.prototype.playerControls = function() {
     if (this.cursors.up.isDown) {
         this.tumbler.playerSprite.body.allowGravity = false;  
         this.tumbler.playerSprite.body.velocity.y = -480;
+        this.game.add.tween(this.tumbler.playerSprite).to({angle: -20}, 100).start();
     }
     else {
         this.tumbler.playerSprite.body.allowGravity = true;

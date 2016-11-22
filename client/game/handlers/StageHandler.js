@@ -7,6 +7,7 @@ var cacti;
 StageHandler.prototype.constructStage = function() {
     // Add the Background
     this.background = this.game.add.tileSprite(0, 0, 1024, 576, 'arenaBackground1');
+    this.game.physics.setBoundsToWorld();
 
     cacti = this.game.add.group();
 
@@ -17,7 +18,7 @@ StageHandler.prototype.constructStage = function() {
 
 StageHandler.prototype.addCactiWall = function() {    
     for (var i = 0; i < 10; i++)
-        if (i != door && i != door +1) 
+        if (i != door && i != door+1 && i != door+2) 
             this.addCactus(1024, i*60);
 };
 
