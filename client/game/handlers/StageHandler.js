@@ -39,5 +39,13 @@ StageHandler.prototype.update = function() {
     if (this.ready && addWall) {
         this.addCactiWall();
         addWall = false;
+
+        // Wait at least 1 second before adding the next wall
+        this.ready = false;
+        this.game.time.events.add(1000, function() {this.ready = true}, this); 
+    }
+    // Skip a wall if the client isn't ready
+    else if (!this.ready && addWall) {
+        addWall = false;
     }
 };

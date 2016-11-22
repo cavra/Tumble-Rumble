@@ -39,7 +39,7 @@ TumbleRumble.results.prototype = {
 
 	exitResults: function() {
 		socket.disconnect();
-		this.state.start('boot', true, true);
+		this.state.start('boot');
 	},
 
 };

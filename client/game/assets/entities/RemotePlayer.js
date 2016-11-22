@@ -12,6 +12,11 @@ RemotePlayer.prototype.create = function (index, x, y) {
     this.tumbler = new Tumbler(this.game);
     this.tumbler.create();
 
+    // Player's weapon
+    this.weapon = new RemoteWeapon(this.game);
+    this.weapon.create();
+    this.tumbler.playerSprite.addChild(this.weapon.katana);
+
     // Player's health bar
     this.healthBar = new HealthBar(this.game);
     this.healthBar.create();
@@ -34,6 +39,7 @@ RemotePlayer.prototype.update = function () {
 
 	// Update the player components
 	this.tumbler.update();
+    this.weapon.update();
 
     // Update player's location
     this.x = this.tumbler.playerSprite.x;

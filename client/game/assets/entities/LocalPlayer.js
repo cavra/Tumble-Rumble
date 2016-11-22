@@ -14,6 +14,11 @@ LocalPlayer.prototype.create = function() {
     this.healthBar.create();
     this.tumbler.playerSprite.addChild(this.healthBar.healthBar);
 
+    // Player's weapon
+    this.weapon = new LocalWeapon(this.game);
+    this.weapon.create();
+    this.tumbler.playerSprite.addChild(this.weapon.katana);
+
     // Send local player data to the game server
     socket.emit('new player', {x: this.tumbler.playerSprite.x, y: this.tumbler.playerSprite.y});
 
@@ -29,7 +34,7 @@ LocalPlayer.prototype.create = function() {
 
     // Controls
     this.cursors = this.game.input.keyboard.createCursorKeys();
-    //this.setPlayerControls();
+    //this.setPlayerControls(); // this might be easier on the client
 };
 
 LocalPlayer.prototype.update = function() {
@@ -44,6 +49,7 @@ LocalPlayer.prototype.update = function() {
 
         // Update the player components
         this.tumbler.update();
+        this.weapon.update();
 
         // Handle death
         if (this.health <= 0) {

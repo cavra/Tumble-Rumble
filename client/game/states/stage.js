@@ -9,48 +9,52 @@ var someoneDied = false;
 var door;
 var addWall = false;
 
-var isWinner = false;
-
 TumbleRumble.stage.prototype = {
 
-  create: function() {
-    console.log('Entered Stage');
+    create: function() {
+        console.log('Entered Stage');
 
-    // Take care of basic stuff
-    myGame = this.game;
+        // Take care of basic stuff
+        myGame = this.game;
 
-    // Start the music
-    this.music = this.add.audio('welcome_music', 0.5, true);
-    this.music.play();
+        // Start the music
+        this.music = this.add.audio('welcome_music', 0.5, true);
+        this.music.play();
 
-    // Initiate the Stage Handler
-    stageHandler = new StageHandler(this.game);
-    stageHandler.constructStage();
+        // Initiate the Stage Handler
+        stageHandler = new StageHandler(this.game);
+        stageHandler.constructStage();
 
-    // Spawn the local player
-    player = new LocalPlayer(this.game);
-    player.create();
-  },
+        // Spawn the local player
+        player = new LocalPlayer(this.game);
+        player.create();
+    },
 
-  update: function () {
-    // Update our player
-    player.update();
+    update: function () {
+        // Update our player
+        player.update();
 
-    // Update all remote players
-    socketHandler.update();
+        // Update all remote players
+        socketHandler.update();
 
-    // Update the stage
-    stageHandler.update();
+        // Update the stage
+        stageHandler.update();
 
-    // Check for game over
-    if (someoneDied && remotePlayers.length < 2) {
-        socket.emit('winner');
-        if (player.alive) {
-            this.state.start('results', true, false, true);
+        // Check for game over
+        if (someoneDied && remotePlayers.length < 2) {
+            socket.emit('winner');
+            if (player.alive) {
+                this.state.start('results', true, true, true);
+            }
+            else {
+                this.state.start('results', true, true, false)
+            }
         }
-        else {
-            this.state.start('results', true, false, false)
-        }
-    }
-  },
+    },
+
+    destructor: function () {
+        someoneDied = false; // Need this to restart, apparently
+        addWall = false;
+    },
+
 };

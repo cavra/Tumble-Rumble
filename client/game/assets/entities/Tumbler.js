@@ -11,9 +11,6 @@ Tumbler.prototype.create = function() {
     this.playerSprite.animations.add('tumble', [0, 1, 2, 3, 4, 5], 5, true);
     this.playerSprite.animations.play('tumble');
 
-    // Tumbler's Apperance
-    //this.playerSprite.scale.setTo(0.5, 0.5);
-
     // Tumbler's Physics
     this.game.physics.enable(this.playerSprite, Phaser.Physics.ARCADE);
     this.playerSprite.anchor.set(0.5);
@@ -21,6 +18,7 @@ Tumbler.prototype.create = function() {
     this.playerSprite.body.gravity.y = 2000;
     this.playerSprite.body.maxVelocity.x = 375;
     this.playerSprite.body.maxVelocity.y = 1000;
+    //this.playerSprite.body.collideWorldBounds = true;
 };
 
 Tumbler.prototype.update = function() {

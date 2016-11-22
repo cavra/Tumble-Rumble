@@ -11,7 +11,7 @@ HealthBar.prototype.create = function() {
 
     this.healthBar.anchor.set(0.5);
     this.healthBar.x = 0;
-    this.healthBar.y = -30;
+    this.healthBar.y = -40;
 
     this.originalWidth = this.healthBar.width;
 };
