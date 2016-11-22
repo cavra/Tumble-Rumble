@@ -6,7 +6,7 @@ Tumbler.prototype.create = function() {
     console.log('Creating Tumbleweed Texture');
 
     // Add the Tumbler's sprite and its animations
-    this.playerSprite = myGame.add.sprite(200, 100, 'tumbleweed');
+    this.playerSprite = this.game.add.sprite(200, 100, 'tumbleweed');
     this.playerSprite.animations.add('standing', [0], true);
     this.playerSprite.animations.add('tumble', [0, 1, 2, 3, 4, 5], 5, true);
     this.playerSprite.animations.play('tumble');

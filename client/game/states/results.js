@@ -25,10 +25,12 @@ TumbleRumble.results.prototype = {
 
 	    // Display the player's status (win or lose)
         if (this.isWinner) {	    
-		    this.text_left = this.game.add.text(this.game.width/2, this.game.height/2, 'You won!', style);
+		    this.textWinner = this.game.add.text(this.game.width/2, this.game.height/2, 'You won!', style);
+			this.textWinner.anchor.set(0.5);
         }
         else {
-		    this.text_left = this.game.add.text(this.game.width/2, this.game.height/2, 'You lost :(', style);
+		    this.textLoser = this.game.add.text(this.game.width/2, this.game.height/2, 'You lost :(', style);
+			this.textLoser.anchor.set(0.5);
         }
 
         // Add the event (8000 = 8 seconds)

@@ -5,11 +5,14 @@ function LocalPlayer(game) {
 LocalPlayer.prototype.create = function() {
     console.log('Creating Local Player', this);
 
-    this.name = "LocalPlayer";
-
     // Player's main sprite
     this.tumbler = new Tumbler(this.game);
     this.tumbler.create();
+
+    // Player's health bar
+    this.healthBar = new HealthBar(this.game);
+    this.healthBar.create();
+    this.tumbler.playerSprite.addChild(this.healthBar.healthBar);
 
     // Send local player data to the game server
     socket.emit('new player', {x: this.tumbler.playerSprite.x, y: this.tumbler.playerSprite.y});
@@ -93,8 +96,9 @@ LocalPlayer.prototype.takeDamage = function (damage) {
         // Decrement the health value
         this.health -= damage;
         this.tumbler.playerSprite.tint = 0x000000;
-        console.log('Player: ', this.name, ' was damaged for: ', damage, ' and has ', this.health, ' health left.');
+        console.log('LocalPlayer: was damaged for: ', damage, ' and has ', this.health, ' health left.');
         socket.emit('take damage', { health: this.health});
+        this.healthBar.crop(this.health);
         
         // Restart the timer
         this.invincibleTimer = this.game.time.create(false);
@@ -108,7 +112,8 @@ LocalPlayer.prototype.takeDamage = function (damage) {
         // Decrement the health value
         this.health -= damage;
         this.tumbler.playerSprite.tint = 0x000000;
-        console.log('Player: ', this.name, ' was damaged for: ', damage, ' and has ', this.health, ' health left.');
+        console.log('LocalPlayer: was damaged for: ', damage, ' and has ', this.health, ' health left.');
+        this.healthBar.crop(this.health);
         
         // Restart the timer
         this.invincibleTimer = this.game.time.create(false);
@@ -120,7 +125,7 @@ LocalPlayer.prototype.takeDamage = function (damage) {
 };
 
 LocalPlayer.prototype.die = function () {
-    console.log('Player died: ', this.name);
+    console.log('LocalPlayer died');
 
     // Tell the server we died
     socket.emit('kill player');

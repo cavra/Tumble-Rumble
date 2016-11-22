@@ -38,7 +38,8 @@ TumbleRumble.boot.prototype = {
     preload: function() {
         // Preload necessary assets for the Preloading game state
         this.load.image('preload_background', 'game/assets/textures/GUI/logo_screen.png');
-        this.load.image('loading_bar', 'game/assets/textures/GUI/loading_bar.png', 100, 10);
+        this.load.image('loadingBar', 'game/assets/textures/GUI/loadingBar.png', 100, 10);
+        this.load.image('loadingBarBackground', 'game/assets/textures/GUI/loadingBarBackground.png', 100, 10);
     },
 
     create: function() {

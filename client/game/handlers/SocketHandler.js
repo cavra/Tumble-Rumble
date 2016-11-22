@@ -97,8 +97,8 @@ SocketHandler.prototype.onTakeDamage = function (data) {
       return;
     }
 
-    // Cause the player to attack
-    tempPlayer.takeDamage();
+    // Damage the player
+    tempPlayer.takeDamage(10);
 };
 
 SocketHandler.prototype.onAttackPlayer = function (data) {

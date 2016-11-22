@@ -22,10 +22,14 @@ TumbleRumble.preloader.prototype = {
 
 		// Has to be in preload, because it won't create the sprite otherwise
 		this.background = this.add.sprite(0, 0, 'preload_background');
-		this.loading_bar = this.add.sprite(this.game.world.centerX - 200, 500, 'loading_bar');
+
+		this.loadingBarBackground = this.add.sprite(this.game.world.centerX - 200, 500, 'loadingBarBackground');
+    	this.loadingBarBackground.tint = 0xFFFFFF;
+
+		this.loadingBar = this.add.sprite(this.game.world.centerX - 200, 500, 'loadingBar');
 		
 		// Loads a portion of the image corresponding to amount of assets loaded below
-		this.load.setPreloadSprite(this.loading_bar);
+		this.load.setPreloadSprite(this.loadingBar);
 	},
 
 	preload_menu: function() {
@@ -42,7 +46,7 @@ TumbleRumble.preloader.prototype = {
 	
 	preload_lobby: function() {
 		// Background
-		this.load.image('lobby_background', 'game/assets/textures/GUI/lobby_screen.png');
+		//this.load.image('lobby_background', 'game/assets/textures/GUI/lobby_screen.png');
 		
 		// GUI
 		this.load.spritesheet('lobby_play_button', 'game/assets/textures/GUI/begin_button.png', 64, 23);
@@ -84,6 +88,9 @@ TumbleRumble.preloader.prototype = {
 		// Player
 		this.game.load.spritesheet('tumbleweed', 'game/assets/textures/player/tumbleweed.png', 64, 64);
 
+		// Healthbar
+		this.load.image('healthbar', 'game/assets/textures/GUI/healthbar.png');
+
 		// Player items
 	    this.load.atlasXML('weapon_katana', 'game/assets/textures/weapons/katana.png', 'game/assets/textures/weapons/katana.xml');
 	},
@@ -91,7 +98,7 @@ TumbleRumble.preloader.prototype = {
 	create: function() {
 
 		// Once everything has been preloaded, stop cropping the preload bar
-		this.loading_bar.cropEnabled = false;
+		this.loadingBar.cropEnabled = false;
 
 	},
 

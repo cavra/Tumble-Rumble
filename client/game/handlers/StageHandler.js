@@ -10,9 +10,9 @@ StageHandler.prototype.constructStage = function() {
 
     cacti = this.game.add.group();
 
-    // Give all the clients 5 seconds to properly sync with the server
+    // Give all the clients 2 seconds to properly sync with the server
     this.ready = false;
-    this.game.time.events.add(5000, function() {this.ready = true}, this);
+    this.game.time.events.add(2000, function() {this.ready = true}, this);
 };
 
 StageHandler.prototype.addCactiWall = function() {    
@@ -31,7 +31,6 @@ StageHandler.prototype.addCactus = function(x, y) {
     cactus.checkWorldBounds = true;
     cactus.outOfBoundsKill = true;
 };
-
 
 StageHandler.prototype.update = function() {
     this.background.tilePosition.x -= 2;

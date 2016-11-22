@@ -12,8 +12,14 @@ RemotePlayer.prototype.create = function (index, x, y) {
     this.tumbler = new Tumbler(this.game);
     this.tumbler.create();
 
+    // Player's health bar
+    this.healthBar = new HealthBar(this.game);
+    this.healthBar.create();
+    this.tumbler.playerSprite.addChild(this.healthBar.healthBar);
+
     // Player's custom values
     this.alive = true;
+    this.health = 100;
 
     // Player's location
     this.x = this.tumbler.playerSprite.x;
@@ -47,19 +53,23 @@ RemotePlayer.prototype.update = function () {
 };
 
 RemotePlayer.prototype.takeDamage = function (damage) {
+    // Decrement the health value
+    this.health -= damage;
     this.tumbler.playerSprite.tint = 0x000000;
     console.log('RemotePlayer: ', this.name, ' was damaged');
+    this.healthBar.crop(this.health);
+
     // Remove the tint after the timer is up
     this.game.time.events.add(Phaser.Timer.SECOND * 0.7, function() {this.tumbler.playerSprite.tint = 0xFFFFFF;}, this);
 };
 
 RemotePlayer.prototype.attack = function () {
-    console.log('Player: ', this.name, ' is attacking.');
+    console.log('RemotePlayer: ', this.name, ' is attacking.');
     this.weapon.attack();
 };
 
 RemotePlayer.prototype.die = function () {
-    console.log('Player died: ', this.name);
+    console.log('RemotePlayer died: ', this.name);
     
     someoneDied = true;
 
