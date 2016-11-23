@@ -5,7 +5,7 @@ TumbleRumble.boot = function (game) {};
 TumbleRumble.boot.prototype = {
 
     init: function() {
-        console.log('Booting up...!');
+        console.log('Booting up...');
 
         //this.clearGameCache(); // this causes the game to not load anything
 
