@@ -48,7 +48,7 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 ### Delierable 4 (Functional Prototype 1)
 
-[Google Doc](weAreStillWorkingOnThis)
+[Google Doc](https://docs.google.com/document/d/12KW2IS8TZy4njoBXavYcIQaC-xo6jfEVTMO9JBeyv3E/edit?usp=sharing)
 
 [Change Log](https://docs.google.com/document/d/1nM5Jnp4wvHg19K2eCLouy3HUFpQ7Jray0x58PhVhsKA/edit)
 
@@ -60,7 +60,7 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 ### Delierable 6 (Functional Prototype 2)
 
-[Google Doc](Still working on this)
+[Google Doc](https://docs.google.com/document/d/12KW2IS8TZy4njoBXavYcIQaC-xo6jfEVTMO9JBeyv3E/edit?usp=sharing)
 
 ### Delierable 7 (Video)
 
