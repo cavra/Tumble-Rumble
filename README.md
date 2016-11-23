@@ -34,7 +34,7 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 [Change Log](https://docs.google.com/document/d/1Y1uz1-Le6BsaAkqbf8q4dkl5UrCj5hp1TVaS25fI0oo/edit?usp=sharing)
 
-### Deliverable 2 (Formative User Study)
+### Deliverable 2 (Formative User Study 1 - Lightweight Prototype)
 
 [Google Doc](https://docs.google.com/document/d/1WzDQdtBhk-w26gtdeWK18lK4jFh9TFa8f3fjVOdm3j8/edit?usp=sharing)
 
@@ -52,6 +52,24 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 [Change Log](https://docs.google.com/document/d/1nM5Jnp4wvHg19K2eCLouy3HUFpQ7Jray0x58PhVhsKA/edit)
 
-### Delierable 5 (Functional Specification Revision)
+### Delierable 5 (Formative User Study 2 - Functional Prototype)
 
 [Google Doc](https://docs.google.com/document/d/1BOqGMOEfmNuxONAq4EJUNLXJsEdPvfW6FLC58XkwPK0/edit?usp=sharing)
+
+[Change Log](https://docs.google.com/document/d/1nM5Jnp4wvHg19K2eCLouy3HUFpQ7Jray0x58PhVhsKA/edit)
+
+### Delierable 6 (Functional Prototype 2)
+
+[Google Doc](Still working on this)
+
+### Delierable 7 (Video)
+
+[Youtube Video](Still working on this)
+
+### Delierable 8 (Final Presentation)
+
+[Google Doc](Still working on this)
+
+### Delierable 9 (Final Report)
+
+[Google Doc](Still working on this)
