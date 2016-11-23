@@ -27,6 +27,7 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 [IdeaMache Curation](https://ideamache.ecologylab.net/v/UpeGkSj1X9/)
 
 [Development Log](https://docs.google.com/document/d/1GpgrooDESPburxhSry0y4EyLmK5WqAE1mVtQtj3yDZ8/edit?usp=sharing) 
+[Live Demo](https://tumblerumble.herokuapp.com/)
 
 ### Deliverable 1 (Interactive Game Design)
 
