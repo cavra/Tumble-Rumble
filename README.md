@@ -58,6 +58,8 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 [Google Doc](https://docs.google.com/document/d/1BOqGMOEfmNuxONAq4EJUNLXJsEdPvfW6FLC58XkwPK0/edit?usp=sharing)
 
+[Youtube Video](https://www.youtube.com/watch?v=vpc6PAbjPCE&feature=youtu.be)
+
 [Change Log](https://docs.google.com/document/d/1nM5Jnp4wvHg19K2eCLouy3HUFpQ7Jray0x58PhVhsKA/edit)
 
 ### Delierable 6 (Functional Prototype 2)
