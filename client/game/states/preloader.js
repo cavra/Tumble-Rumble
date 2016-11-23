@@ -57,6 +57,8 @@ TumbleRumble.preloader.prototype = {
 
 	preloadStage: function() {
 		this.load.image('cactus', 'game/assets/textures/world/cactus.png');
+
+		this.load.image('stageMusic', 'game/assets/sounds/welcome.wav');
 	},
 
 	preloadResults: function() {

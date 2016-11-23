@@ -18,7 +18,7 @@ TumbleRumble.stage.prototype = {
         myGame = this.game;
 
         // Start the music
-        this.music = this.add.audio('welcome_music', 0.5, true);
+        this.music = this.add.audio('stageMusic', 0.5, true);
         this.music.play();
 
         // Initiate the Stage Handler
@@ -55,6 +55,7 @@ TumbleRumble.stage.prototype = {
     },
 
     destructor: function () {
+        this.music.stop();
         someoneDied = false; // Need this to restart, apparently
         addWall = false;
     },
