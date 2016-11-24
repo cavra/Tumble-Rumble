@@ -15,7 +15,7 @@ Tumbler.prototype.create = function() {
     this.game.physics.enable(this.playerSprite, Phaser.Physics.ARCADE);
     this.playerSprite.anchor.set(0.5);
     this.playerSprite.body.allowGravity = true;
-    this.playerSprite.body.gravity.y = 2000;
+    this.playerSprite.body.gravity.y = 1000;
     this.playerSprite.body.maxVelocity.x = 375;
     this.playerSprite.body.maxVelocity.y = 1000;
     //this.playerSprite.body.collideWorldBounds = true;
