@@ -46,7 +46,7 @@ RemotePlayer.prototype.update = function () {
     this.y = this.tumbler.playerSprite.y;
 
     // Update the player's facing direction
-    if (this.lastX != this.x) {
+    if (this.lastX <= this.x - 5 || this.lastX >= this.x + 5) {
         if (this.lastX > this.x) {
             this.tumbler.playerSprite.scale.x = 1;
         }
