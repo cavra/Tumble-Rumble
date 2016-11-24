@@ -22,5 +22,6 @@ Tumbler.prototype.create = function() {
 };
 
 Tumbler.prototype.update = function() {
-    this.game.physics.arcade.collide(this.playerSprite, player.tumbler.playerSprite);
+    // Too glitchy to use
+    //this.game.physics.arcade.collide(this.playerSprite, player.tumbler.playerSprite);
 };

@@ -12,6 +12,9 @@ RemotePlayer.prototype.create = function (index, x, y) {
     this.tumbler = new Tumbler(this.game);
     this.tumbler.create();
 
+    // Tint the remote players
+    this.tumbler.playerSprite.tint = 0xFF0000;
+
     // Player's weapon
     this.weapon = new RemoteWeapon(this.game);
     this.weapon.create();
@@ -66,7 +69,7 @@ RemotePlayer.prototype.takeDamage = function (damage) {
     this.healthBar.crop(this.health);
 
     // Remove the tint after the timer is up
-    this.game.time.events.add(Phaser.Timer.SECOND * 0.7, function() {this.tumbler.playerSprite.tint = 0xFFFFFF;}, this);
+    this.game.time.events.add(Phaser.Timer.SECOND * 0.7, function() {this.tumbler.playerSprite.tint = 0xFF0000;}, this);
 };
 
 RemotePlayer.prototype.attack = function () {
