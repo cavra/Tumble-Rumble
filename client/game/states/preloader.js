@@ -41,7 +41,7 @@ TumbleRumble.preloader.prototype = {
 		this.load.spritesheet('menuPlayButton', 'game/assets/textures/GUI/beginButton.png', 64, 23);
 		
 		// Music
-		//this.load.audio('menuMusic', ['game/assets/sounds/welcome.wav']);	
+		this.load.audio('menuMusic', ['game/assets/sounds/welcome.wav']);	
 	},
 	
 	preloadLobby: function() {
@@ -52,13 +52,13 @@ TumbleRumble.preloader.prototype = {
 		this.load.spritesheet('lobbyPlayButton', 'game/assets/textures/GUI/beginButton.png', 64, 23);
 		
 		// Music
-		//this.load.audio('lobbyMusic', ['game/assets/sounds/welcome.wav']);		
+		this.load.audio('lobbyMusic', ['game/assets/sounds/welcome.wav']);		
 	},
 
 	preloadStage: function() {
 		this.load.image('cactus', 'game/assets/textures/world/cactus.png');
 
-		//this.load.audio('stageMusic', ['game/assets/sounds/welcome.wav']);
+		this.load.audio('stageMusic', ['game/assets/sounds/welcome.wav']);
 	},
 
 	preloadResults: function() {
