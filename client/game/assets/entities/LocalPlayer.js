@@ -34,7 +34,7 @@ LocalPlayer.prototype.create = function() {
 
     // Controls
     this.cursors = this.game.input.keyboard.createCursorKeys();
-    this.jumpButton = this.game.input.keyboard.createCursorKeys();
+    this.jumpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     //this.setPlayerControls(); // this might be easier on the client
 };
 
@@ -86,7 +86,7 @@ LocalPlayer.prototype.playerControls = function() {
     }
 
     // Jump (needs work)
-    if (this.cursors.up.isDown) {
+    if (this.jumpButton.isDown) {
         this.tumbler.playerSprite.body.allowGravity = false;  
         this.tumbler.playerSprite.body.velocity.y = -480;
         this.game.add.tween(this.tumbler.playerSprite).to({angle: -30}, 100).start();
