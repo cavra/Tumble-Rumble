@@ -86,7 +86,7 @@ LocalPlayer.prototype.playerControls = function() {
     }
 
     // Jump (needs work)
-    if (this.jumpButton.isDown) {
+    if (this.jumpButton.isDown || this.cursors.up.isDown) {
         this.tumbler.playerSprite.body.allowGravity = false;  
         this.tumbler.playerSprite.body.velocity.y = -480;
         this.game.add.tween(this.tumbler.playerSprite).to({angle: -30}, 100).start();
