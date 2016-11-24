@@ -34,6 +34,7 @@ LocalPlayer.prototype.create = function() {
 
     // Controls
     this.cursors = this.game.input.keyboard.createCursorKeys();
+    this.jumpButton = this.game.input.keyboard.createCursorKeys();
     //this.setPlayerControls(); // this might be easier on the client
 };
 
