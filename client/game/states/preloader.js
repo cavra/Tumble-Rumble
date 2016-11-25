@@ -41,7 +41,7 @@ TumbleRumble.preloader.prototype = {
 		this.load.spritesheet('menuPlayButton', 'game/assets/textures/GUI/beginButton.png', 64, 23);
 		
 		// Music
-		this.load.audio('menuMusic', ['game/assets/sounds/welcome.wav']);	
+		this.load.audio('menuMusic', ['game/assets/sounds/tumbleweedTown.mp3']);	
 	},
 	
 	preloadLobby: function() {
@@ -52,22 +52,24 @@ TumbleRumble.preloader.prototype = {
 		this.load.spritesheet('lobbyPlayButton', 'game/assets/textures/GUI/beginButton.png', 64, 23);
 		
 		// Music
-		this.load.audio('lobbyMusic', ['game/assets/sounds/welcome.wav']);		
+		this.load.audio('lobbyMusic', ['game/assets/sounds/wildWest.mp3']);		
 	},
 
 	preloadStage: function() {
+		// Textures
 		this.load.image('cactus', 'game/assets/textures/world/cactus.png');
 
-		this.load.audio('stageMusic', ['game/assets/sounds/welcome.wav']);
+		// Music
+		this.load.audio('stageMusic', ['game/assets/sounds/fistfulOfDollars.mp3']);
 	},
 
 	preloadResults: function() {
-	
+		// Needs a background, button, etc
 	},
 
 	preloadStages: function() {
 		
-		// Tilemaps		
+		// Tilemaps (these aren't being used anymore)
 		this.load.tilemap('arena1', 'game/assets/tilemaps/arena1/arena1.json', null, Phaser.Tilemap.TILED_JSON);
 		this.load.image('tileset1', 'game/assets/tilemaps/arena1/tileset1.png');
 		this.load.image('arenaBackground1', 'game/assets/tilemaps/arena1/background.png');
