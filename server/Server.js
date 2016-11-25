@@ -121,10 +121,10 @@ function onNewPlayer (data) {
   this.broadcast.emit('new player', {id: newPlayer.id, x: newPlayer.getX(), y: newPlayer.getY()});
 
   // Send existing players to the new player
-  var i, existingPlayer;
+  var i, tempPlayer;
   for (i = 0; i < players.length; i++) {
-    existingPlayer = players[i];
-    this.emit('new player', {id: existingPlayer.id, x: existingPlayer.getX(), y: existingPlayer.getY()});
+    tempPlayer = players[i];
+    this.emit('new player', {id: tempPlayer.id, x: tempPlayer.getX(), y: tempPlayer.getY()});
   }
 
   // Add new player to the players array
