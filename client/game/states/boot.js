@@ -19,12 +19,11 @@ TumbleRumble.boot.prototype = {
         }
         // Mobile-specific behaviour
         else {
-            this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-            this.scale.setMinMax(100, 60, 1000, 600);
-            this.scale.forceLandscape = true;
-            this.scale.pageAlignHorizontally = true;
-            this.scale.setScreenSize(true);
-            this.scale.refresh();
+            this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+            this.game.scale.setMinMax(80, 50, 1024, 576);
+            this.game.scale.pageAlignHorizontally = true;
+            this.game.scale.pageAlignVertically = true;
+            this.game.scale.refresh();
         }
     },
 
