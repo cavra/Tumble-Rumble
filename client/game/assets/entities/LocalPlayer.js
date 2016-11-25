@@ -85,8 +85,8 @@ LocalPlayer.prototype.playerControls = function() {
         //this.tumbler.playerSprite.animations.play('standing');
     }
 
-    // Jump (needs work)
-    if (this.jumpButton.isDown || this.cursors.up.isDown) {
+    // Jump if Spacebar, Up arrow, or mouse button is pressed (mouse button for mobile)
+    if (this.jumpButton.isDown || this.cursors.up.isDown || this.game.input.activePointer.isDown) {
         this.tumbler.playerSprite.body.allowGravity = false;  
         this.tumbler.playerSprite.body.velocity.y = -480;
         this.game.add.tween(this.tumbler.playerSprite).to({angle: -30}, 100).start();

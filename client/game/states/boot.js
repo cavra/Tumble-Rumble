@@ -14,6 +14,7 @@ TumbleRumble.boot.prototype = {
         // Toggles auto-pause if user changes focus
         this.stage.disableVisibilityChange = true;
 
+        // Desktop-specific behaviour
         if (this.game.device.desktop) {
             // Add any desktop-specific behaviour details here            
         }
