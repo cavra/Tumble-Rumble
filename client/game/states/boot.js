@@ -15,10 +15,10 @@ TumbleRumble.boot.prototype = {
         this.stage.disableVisibilityChange = true;
 
         if (this.game.device.desktop) {
-            // Add any desktop-specific behaviour details here
+            // Add any desktop-specific behaviour details here            
         }
+        // Mobile-specific behaviour
         else {
-            // Mobile-specific behaviour
             this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
             this.scale.setMinMax(100, 60, 1000, 600);
             this.scale.forceLandscape = true;
