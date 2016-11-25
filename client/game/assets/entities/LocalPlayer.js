@@ -26,6 +26,7 @@ LocalPlayer.prototype.create = function() {
     this.alive = true;
     this.health = 100;
     this.player = this.tumbler.playerSprite;
+    this.elapsedTimeSinceLastMovement = this.time.now()
 
     // Timers
     this.invincibleTimer = 0;
@@ -42,7 +43,8 @@ LocalPlayer.prototype.update = function() {
 
     if (this.alive) {
         // Tell the server we are moving our player
-        socket.emit('move player', {x: this.tumbler.playerSprite.x, y: this.tumbler.playerSprite.y});
+        socket.emit('move player', {x: this.tumbler.playerSprite.x, y: this.tumbler.playerSprite.y, elapsedTime: this.time.now() - this.elapsedTimeSinceLastMovement});
+        this.elapsedTimeSinceLastMovement = this.time.now()
 
         // Handle user input
         this.playerControls();

@@ -147,7 +147,7 @@ function onMovePlayer (data) {
   tempPlayer.setY(data.y);
 
   // Broadcast updated position to connected socket clients
-  this.broadcast.emit('move player', {id: tempPlayer.id, x: tempPlayer.getX(), y: tempPlayer.getY()});
+  this.broadcast.emit('move player', {id: tempPlayer.id, x: tempPlayer.getX(), y: tempPlayer.getY(), elapsedTime: data.elapsedTime});
 };
 
 // Player is attacking
