@@ -68,7 +68,7 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 ### Delierable 7 (Video)
 
-[Youtube Video](Still working on this)
+[Youtube Video](Still working on this.. almost done)
 
 ### Delierable 8 (Final Presentation)
 
