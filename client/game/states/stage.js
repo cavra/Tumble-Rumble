@@ -41,7 +41,7 @@ TumbleRumble.stage.prototype = {
         stageHandler.update();
 
         // Check for game over
-        if (someoneDied && remotePlayers.length < 2) {
+        if (someoneDied) { // && there is only one tumbleweed alive left
             socket.emit('winner');
             this.destructor();
             

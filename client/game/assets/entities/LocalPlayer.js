@@ -26,20 +26,52 @@ LocalPlayer.prototype.create = function() {
     this.alive = true;
     this.health = 100;
     this.player = this.tumbler.playerSprite;
+    //this.lives = 3;
 
-    // Timers
+    // Timers and Events
     this.invincibleTimer = 0;
     this.tumbler.playerSprite.checkWorldBounds = true;
     this.tumbler.playerSprite.events.onOutOfBounds.add(this.die, this);
+    this.jumpReady = true;
 
     // Controls
+    this.setPlayerControls();
+};
+
+LocalPlayer.prototype.setPlayerControls = function() {
+    // Set variables
     this.cursors = this.game.input.keyboard.createCursorKeys();
     this.jumpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-    //this.setPlayerControls(); // this might be easier on the client
+    this.mobileTap = this.game.input;
+
+    // Add jump event
+    this.jumpButton.onDown.add(this.jump, this);
+    this.cursors.up.onDown.add(this.jump, this);
+    this.mobileTap.onDown.add(this.jump, this);
+
+    // Add move event
+    this.jumpButton.onDown.add(this.jump, this);
+    this.cursors.up.onDown.add(this.jump, this);
+    this.mobileTap.onDown.add(this.jump, this);
+
+    // this.cursors.left.onDown.add(this.moveLeft, this);
+    // this.cursors.right.onDown.add(this.moveRight, this);
+
+};
+
+LocalPlayer.prototype.jump = function (damage) {
+    this.tumbler.playerSprite.body.allowGravity = false;  
+    this.tumbler.playerSprite.body.velocity.y = -500;
+    this.game.time.events.add(50, function() {
+        this.tumbler.playerSprite.body.allowGravity = true;  
+    }, this); 
+
+    this.game.add.tween(this.tumbler.playerSprite).to({angle: -30}, 100).start();
 };
 
 LocalPlayer.prototype.update = function() {
 
+    // Only update if the player is alive
     if (this.alive) {
         // Tell the server we are moving our player
         socket.emit('move player', {x: this.tumbler.playerSprite.x, y: this.tumbler.playerSprite.y});
@@ -49,7 +81,7 @@ LocalPlayer.prototype.update = function() {
         this.playerPhysics();
 
         // Update the player components
-        this.tumbler.update();
+        // this.tumbler.update(); // Doesn't do anything
         this.weapon.update();
 
         // Handle death
@@ -61,7 +93,8 @@ LocalPlayer.prototype.update = function() {
 
 LocalPlayer.prototype.playerControls = function() {
 
-     if (this.tumbler.playerSprite.angle < 0 && !this.tumbler.playerSprite.body.touching.down) {
+    // Adjust sprite angle
+    if (this.tumbler.playerSprite.angle < 0 && !this.tumbler.playerSprite.body.touching.down) {
             this.tumbler.playerSprite.angle += 1;
      }
 
@@ -79,20 +112,9 @@ LocalPlayer.prototype.playerControls = function() {
     }
     // Slow to a stop
     else {
-        //slow the player to a stop
         this.tumbler.playerSprite.body.acceleration.x = 0;
         this.tumbler.playerSprite.body.drag.x = 2500;
         //this.tumbler.playerSprite.animations.play('standing');
-    }
-
-    // Jump if Spacebar, Up arrow, or mouse button is pressed (mouse button for mobile)
-    if (this.jumpButton.isDown || this.cursors.up.isDown || this.game.input.activePointer.isDown) {
-        this.tumbler.playerSprite.body.allowGravity = false;  
-        this.tumbler.playerSprite.body.velocity.y = -480;
-        this.game.add.tween(this.tumbler.playerSprite).to({angle: -30}, 100).start();
-    }
-    else {
-        this.tumbler.playerSprite.body.allowGravity = true;
     }
 };
 
