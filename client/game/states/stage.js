@@ -42,10 +42,10 @@ TumbleRumble.stage.prototype = {
         player.update();
 
         // Update all remote players
-        socketHandler.update();
+        //socketHandler.update();
 
         // Update the stage
-        //stageHandler.update();
+        stageHandler.update();
 
         // Check for game over
         console.log("Number of remotes: ", remotePlayersNumber);
