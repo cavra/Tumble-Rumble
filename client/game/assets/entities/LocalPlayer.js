@@ -33,6 +33,7 @@ LocalPlayer.prototype.create = function() {
     this.tumbler.playerSprite.checkWorldBounds = true;
     this.tumbler.playerSprite.events.onOutOfBounds.add(this.die, this);
     this.jumpReady = true;
+    this.game.time.events.loop(10, this.updateLocation, this);
 
     // Controls
     this.setPlayerControls();
@@ -69,12 +70,17 @@ LocalPlayer.prototype.jump = function (damage) {
     this.game.add.tween(this.tumbler.playerSprite).to({angle: -30}, 100).start();
 };
 
+LocalPlayer.prototype.updateLocation = function() {
+    if (this.alive) {
+        // Tell the server we are moving our player
+        socket.emit('move player', {x: this.tumbler.playerSprite.x, y: this.tumbler.playerSprite.y});
+    }
+};
+
 LocalPlayer.prototype.update = function() {
 
     // Only update if the player is alive
     if (this.alive) {
-        // Tell the server we are moving our player
-        socket.emit('move player', {x: this.tumbler.playerSprite.x, y: this.tumbler.playerSprite.y});
 
         // Handle user input
         this.playerControls();

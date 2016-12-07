@@ -19,7 +19,7 @@ var style = {
 
 StageHandler.prototype.constructStage = function() {
     // Add the Background
-    this.background = this.game.add.tileSprite(0, 0, 1024, 576, 'arenaBackground1');
+    this.background = this.game.add.tileSprite(0, 0, 2048, 576, 'arenaBackground1');
     this.game.physics.setBoundsToWorld();
 
     // Prepare the cacti walls

@@ -81,9 +81,9 @@ SocketHandler.prototype.onMovePlayer = function (data) {
       console.log('Player not found: ', data.id);
       return;
     }
-
+      
     // Update player position using a tween for smooth motion
-    myGame.add.tween(tempPlayer.player).to({x: data.x, y: data.y}, 25).start();
+    myGame.add.tween(tempPlayer.player).to({x: data.x, y: data.y}, 10).start();
 };
 
 SocketHandler.prototype.onTakeDamage = function (data) {

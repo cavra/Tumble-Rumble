@@ -41,7 +41,7 @@ RemotePlayer.prototype.create = function (index, x, y) {
 RemotePlayer.prototype.update = function () {
 
 	// Update the player components
-	this.tumbler.update();
+	//this.tumbler.update();
     this.weapon.update();
 
     // Update player's location
