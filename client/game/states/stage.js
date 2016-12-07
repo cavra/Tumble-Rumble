@@ -30,6 +30,9 @@ TumbleRumble.stage.prototype = {
         // Spawn the local player
         player = new LocalPlayer(this.game);
         player.create();
+
+        this.checkWin = false;
+        this.game.time.events.add(1000, function() {this.checkWin = true;}, this);
     },
 
     update: function () {
@@ -44,13 +47,17 @@ TumbleRumble.stage.prototype = {
 
         // Check for game over
         console.log("Number of remotes: ", remotePlayersNumber);
-        if (someoneDied && player.alive && remotePlayersNumber == 0) {
-            this.destructor();
-            this.state.start('results', true, true, true);
-        }
-        else if (!player.alive) {
-            this.destructor();
-            this.state.start('results', true, true, false)
+
+
+        if (this.checkWin) {
+            if (someoneDied && player.alive && remotePlayersNumber == 0) {
+                this.destructor();
+                this.state.start('results', true, true, true);
+            }
+            else if (!player.alive) {
+                this.destructor();
+                this.state.start('results', true, true, false)
+            }
         }
     },
 
@@ -59,6 +66,7 @@ TumbleRumble.stage.prototype = {
         someoneDied = false; // Need this to restart, apparently
         remotePlayersNumber = 0;
         addWall = false;
+        this.checkWin = false;
     },
 
 };
