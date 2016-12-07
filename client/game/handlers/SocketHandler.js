@@ -84,7 +84,6 @@ SocketHandler.prototype.onMovePlayer = function (data) {
     }
       
     // Update player position using a tween for smooth motion
-    tempPlayer.player.
     myGame.add.tween(tempPlayer.player).to({x: data.x, y: data.y}, 10).start();
 };
 
