@@ -27,7 +27,8 @@ TumbleRumble.stage.prototype = {
         // Initiate the Stage Handler
         stageHandler = new StageHandler(this.game);
         stageHandler.constructStage();
-        this.game.time.events.loop(10, stageHandler.update, this);
+        
+        this.game.time.events.loop(10, socketHandler.update, this);
 
         // Spawn the local player
         player = new LocalPlayer(this.game);
