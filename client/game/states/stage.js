@@ -4,7 +4,8 @@ TumbleRumble.stage = function(game) {};
 var myGame; 
 
 var player;
-var someoneDied = false;
+var remoteDied = false;
+var playerDied = false; 
 
 var door;
 var addWall = false;
@@ -26,6 +27,7 @@ TumbleRumble.stage.prototype = {
         // Initiate the Stage Handler
         stageHandler = new StageHandler(this.game);
         stageHandler.constructStage();
+        this.game.time.events.loop(10, stageHandler.update, this);
 
         // Spawn the local player
         player = new LocalPlayer(this.game);
@@ -43,18 +45,17 @@ TumbleRumble.stage.prototype = {
         socketHandler.update();
 
         // Update the stage
-        stageHandler.update();
+        //stageHandler.update();
 
         // Check for game over
         console.log("Number of remotes: ", remotePlayersNumber);
 
-
         if (this.checkWin) {
-            if (someoneDied && player.alive && remotePlayersNumber == 0) {
+            if (remoteDied && !playerDied && remotePlayersNumber == 0) {
                 this.destructor();
                 this.state.start('results', true, true, true);
             }
-            else if (!player.alive) {
+            else if (playerDied) {
                 this.destructor();
                 this.state.start('results', true, true, false)
             }
@@ -63,7 +64,8 @@ TumbleRumble.stage.prototype = {
 
     destructor: function () {
         this.music.stop();
-        someoneDied = false; // Need this to restart, apparently
+        remoteDied = false; // Need this to restart, apparently
+        playerDied = false; // Need this to restart, apparently
         remotePlayersNumber = 0;
         addWall = false;
         this.checkWin = false;

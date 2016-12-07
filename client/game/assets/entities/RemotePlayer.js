@@ -81,7 +81,7 @@ RemotePlayer.prototype.attack = function () {
 RemotePlayer.prototype.die = function () {
     console.log('RemotePlayer died: ', this.name);
     
-    someoneDied = true;
+    remoteDied = true;
 
     this.alive = false;
     this.tumbler.playerSprite.body = null;

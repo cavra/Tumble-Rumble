@@ -166,16 +166,6 @@ SocketHandler.prototype.update = function () {
     }
 };
 
-// // Prototypes don't return anything?
-// SocketHandler.prototype.playerById = function (id) {
-//   for (var i = 0; i < remotePlayers.length; i++) {
-//     if (remotePlayers[i].name === id) {
-//       return remotePlayers[i];
-//     }
-//   }
-//   return false;
-// };
-
 function playerById (id) {
   for (var i = 0; i < remotePlayers.length; i++) {
     if (remotePlayers[i].name === id) {
