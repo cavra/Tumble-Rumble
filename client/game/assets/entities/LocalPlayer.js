@@ -33,7 +33,7 @@ LocalPlayer.prototype.create = function() {
     this.tumbler.playerSprite.checkWorldBounds = true;
     this.tumbler.playerSprite.events.onOutOfBounds.add(this.die, this);
     this.jumpReady = true;
-    this.game.time.events.loop(10, this.updateLocation, this);
+    this.game.time.events.loop(5, this.updateLocation, this);
 
     // Controls
     this.setPlayerControls();
