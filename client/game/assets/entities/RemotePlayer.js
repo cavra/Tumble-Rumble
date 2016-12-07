@@ -28,6 +28,7 @@ RemotePlayer.prototype.create = function (index, x, y) {
     // Player's custom values
     this.alive = true;
     this.health = 100;
+    this.tumbler.playerSprite.body.moves = false; // All movement is handled by sockets
 
     // Player's location
     this.x = this.tumbler.playerSprite.x;
