@@ -166,6 +166,10 @@ SocketHandler.prototype.update = function () {
     }
 };
 
+SocketHandler.prototype.destruct = function () {
+    remotePlayers = [];
+};
+
 function playerById (id) {
   for (var i = 0; i < remotePlayers.length; i++) {
     if (remotePlayers[i].name === id) {

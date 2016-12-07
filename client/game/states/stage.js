@@ -27,8 +27,6 @@ TumbleRumble.stage.prototype = {
         // Initiate the Stage Handler
         stageHandler = new StageHandler(this.game);
         stageHandler.constructStage();
-        
-        this.game.time.events.loop(10, socketHandler.update, this);
 
         // Spawn the local player
         player = new LocalPlayer(this.game);
@@ -43,7 +41,7 @@ TumbleRumble.stage.prototype = {
         player.update();
 
         // Update all remote players
-        //socketHandler.update();
+        socketHandler.update();
 
         // Update the stage
         stageHandler.update();
@@ -64,6 +62,8 @@ TumbleRumble.stage.prototype = {
     },
 
     destructor: function () {
+        socketHandler.destruct();
+
         this.music.stop();
         remoteDied = false; // Need this to restart, apparently
         playerDied = false; // Need this to restart, apparently
