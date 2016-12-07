@@ -43,6 +43,7 @@ TumbleRumble.stage.prototype = {
         stageHandler.update();
 
         // Check for game over
+        console.log("Number of remotes: ", remotePlayersNumber);
         if (someoneDied && player.alive && remotePlayersNumber == 0) {
             this.destructor();
             this.state.start('results', true, true, true);
