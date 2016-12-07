@@ -70,6 +70,7 @@ SocketHandler.prototype.onNewPlayer = function (data) {
 
     // Add new player to the remote players array
     remotePlayers.push(newRemotePlayer);
+    remotePlayersNumber++;
 };
 
 SocketHandler.prototype.onMovePlayer = function (data) {
@@ -126,6 +127,7 @@ SocketHandler.prototype.onKillPlayer = function (data) {
 
     // Update player health
     tempPlayer.die();
+    remotePlayersNumber--;
 };
 
 SocketHandler.prototype.onRemovePlayer = function (data) {

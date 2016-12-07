@@ -84,8 +84,6 @@ function onSocketConnection (client) {
 
   // Listen for death player message
   client.on('kill player', onKillPlayer);
-
-  client.on('winner', onWinner);
 };
 
 // Socket client has disconnected
@@ -190,20 +188,6 @@ function onKillPlayer (data) {
   }
 
   this.broadcast.emit('kill player', {id: tempPlayer.id});
-};
-
-// Only one player left, game is over
-function onWinner (data) {
-  // Find player in array
-  var tempPlayer = playerById(this.id);
-
-  // Player not found
-  if (!tempPlayer) {
-    util.log('Player not found: ' + this.id);
-    return;
-  }
-
-  this.broadcast.emit('winner', {id: tempPlayer.id});
 };
 
 /* ************************************************

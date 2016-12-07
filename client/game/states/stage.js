@@ -9,6 +9,8 @@ var someoneDied = false;
 var door;
 var addWall = false;
 
+var remotePlayersNumber = 0;
+
 TumbleRumble.stage.prototype = {
 
     create: function() {
@@ -41,22 +43,20 @@ TumbleRumble.stage.prototype = {
         stageHandler.update();
 
         // Check for game over
-        if (someoneDied) { // && there is only one tumbleweed alive left
-            socket.emit('winner');
+        if (someoneDied && player.alive && remotePlayersNumber == 0) {
             this.destructor();
-            
-            if (player.alive) {
-                this.state.start('results', true, true, true);
-            }
-            else {
-                this.state.start('results', true, true, false)
-            }
+            this.state.start('results', true, true, true);
+        }
+        else if (!player.alive) {
+            this.destructor();
+            this.state.start('results', true, true, false)
         }
     },
 
     destructor: function () {
         this.music.stop();
         someoneDied = false; // Need this to restart, apparently
+        remotePlayersNumber = 0;
         addWall = false;
     },
 
