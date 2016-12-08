@@ -72,7 +72,7 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 ### Delierable 8 (Final Presentation)
 
-[Google Doc](https://docs.google.com/presentation/d/1vwDQoX-c8YCCEkGBzn-XlTL7a3Kjf26EGI9-MyvSuDk/edit?usp=sharing)
+[Google Slide](https://docs.google.com/presentation/d/1vwDQoX-c8YCCEkGBzn-XlTL7a3Kjf26EGI9-MyvSuDk/edit?usp=sharing)
 
 ### Delierable 9 (Final Report)
 
