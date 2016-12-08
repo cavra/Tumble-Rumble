@@ -62,7 +62,7 @@ TumbleRumble.stage.prototype = {
     },
 
     destructor: function () {
-        socketHandler.destruct();
+        //socketHandler.destruct();
 
         this.music.stop();
         remoteDied = false; // Need this to restart, apparently
