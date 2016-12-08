@@ -25,27 +25,7 @@ TumbleRumble.lobby.prototype = {
 		this.music = this.add.audio('lobbyMusic', 0.5, true);
 		this.music.play();
 
-	    this.createText();
 	    this.createButtons();
-	},
-
-	createText: function () {
-	    var style = {
-	        font: "32px Arial", 
-	        fill: "#FFFFFF", 
-	        align: "left", 
-	        stroke: "black", 
-	        strokeThickness: 3,
-	        wordWrap: false,
-	        wordWrapWidth: 100,
-	        shadowOffsetX: 0,
-	        shadowOffsetY: 0,
-	        shadowColor: "black",
-	        shadowBlur: 10
-	    };
-
-		this.textSolo = this.game.add.text(600, 450, 'Or play Solo', style);
-		this.textSolo.anchor.set(0.5);
 	},
 
 	createButtons: function() {
