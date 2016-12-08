@@ -44,9 +44,6 @@ TumbleRumble.lobby.prototype = {
 	        shadowBlur: 10
 	    };
 
-		this.textWait = this.game.add.text(this.game.width/2, this.game.height/2, 'Waiting for other players to join...', style);
-		this.textWait.anchor.set(0.5);
-
 		this.textSolo = this.game.add.text(600, 450, 'Or play Solo', style);
 		this.textSolo.anchor.set(0.5);
 	},
