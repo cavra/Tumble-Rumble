@@ -76,4 +76,4 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 ### Delierable 9 (Final Report)
 
-[Google Doc](Still working on this)
+[Google Doc](https://docs.google.com/document/d/1LvAGXq8pYgJZrUn9zLkoohXg_Ifd3_8PjPFuv-mEbF0/edit)
