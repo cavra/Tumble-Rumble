@@ -78,4 +78,4 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 [Google Doc](https://docs.google.com/a/tamu.edu/document/d/1LvAGXq8pYgJZrUn9zLkoohXg_Ifd3_8PjPFuv-mEbF0/edit?usp=sharing)
 
-A PDF version of our Final Report is also included in this repository.
+[PDF Version Copy](https://github.tamu.edu/cory-avra/315-game-ComputersAreHard/blob/master/FinalReport.pdf)
