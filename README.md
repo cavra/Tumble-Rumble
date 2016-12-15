@@ -1,13 +1,13 @@
 # CSCE - 315 Group Project 2 - Tumble Rumble
 
 ## Project Summary
-This group project is the second programming assignment for CSCE 315 at Texas A&M. It is a multiplayer game developed in HTML5. For more details, see the links below. 
+This group project is the second programming assignment for CSCE 315 at Texas A&M. It is a multiplayer game developed in HTML5 with Node.js, Socket.io, and Phaser. For an in-depth and comprehensive analysis of our project, please see our [Final Report](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D9/FinalReport.pdf). For more details, see the links listed below. 
 
 ## Members
-Jason Alonzo - 124000224<br>
-Cory Avra - 423005091<br>
-Reed Spivey - 623004372<br>
-Brandon Gann - 823000358<br>
+Cory Avra<br>
+Jason Alonzo<br>
+Reed Spivey<br>
+Brandon Gann<br>
 
 ## Aggie Code of Honor
 An Aggie does not lie, cheat or steal or tolerate those who do.<br>
