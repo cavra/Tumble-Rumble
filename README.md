@@ -25,51 +25,49 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 ### General
 
-[Project Guidelines](https://docs.google.com/document/d/187NokR-hFrJIfcoUGKmY0hIjT9iMJpOtQUEcyDtSB7k/edit)
+[Project Guidelines](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/General/Guidelines.pdf)
 
 [IdeaMache Curation](https://ideamache.ecologylab.net/v/UpeGkSj1X9/)
 
-[Development Log](https://docs.google.com/document/d/1GpgrooDESPburxhSry0y4EyLmK5WqAE1mVtQtj3yDZ8/edit?usp=sharing)
+[Development Log](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/General/DevelopmentLog.pdf)
 
 [Live Demo](https://tumblerumble.herokuapp.com/)
 
 ### Deliverable 1 (Interactive Game Design)
 
-[Google Doc](https://docs.google.com/document/d/1BeEMBn4f1MeWA3jVzjUNd0Jw-hCdaoTh7SGW8L-iiic/edit?usp=sharing)
+[Document](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D1/TumbleRumble.pdf)
 
-[Change Log](https://docs.google.com/document/d/1Y1uz1-Le6BsaAkqbf8q4dkl5UrCj5hp1TVaS25fI0oo/edit?usp=sharing)
+[Change Log](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D1/D1ChangeLog.pdf)
 
 ### Deliverable 2 (Formative User Study 1 - Lightweight Prototype)
 
-[Google Doc](https://docs.google.com/document/d/1WzDQdtBhk-w26gtdeWK18lK4jFh9TFa8f3fjVOdm3j8/edit?usp=sharing)
+[Document](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D2/TumbleRumbleLo-FiUserStudyResults.pdf)
 
-[Change Log](https://docs.google.com/document/d/1d_HoEv8TZBUlxYFplItrYo7T-0kKFEhVWg7cVKMF-rs/edit?usp=sharing)
+[Change Log](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D2/D2ChangeLog.pdf)
 
 ### Delierable 3 (Functional Specification)
 
-[Google Doc](https://docs.google.com/document/d/1S14ztRxnAhwNIQ1p6idqvPS1UneUU8B11ZKj5RVOgxM/edit?usp=sharing)
+[Document](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D3/FunctionalSpecification.pdf)
 
-[Change Log](https://docs.google.com/document/d/1LcnWK-Mld2TWQa9GrCQocW0qqUzC1mJMCL9xvt9ZuOg/edit?usp=sharing)
+[Change Log](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D3/D3ChangeLog.pdf)
 
 ### Delierable 4 (Functional Prototype 1)
 
-[Google Doc](https://docs.google.com/document/d/12KW2IS8TZy4njoBXavYcIQaC-xo6jfEVTMO9JBeyv3E/edit?usp=sharing)
+[Document](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D4/TumbleRumbleCodeDocumentation.pdf)
 
-[Change Log](https://docs.google.com/document/d/1nM5Jnp4wvHg19K2eCLouy3HUFpQ7Jray0x58PhVhsKA/edit)
+[Change Log](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D4/D4ChangeLog.pdf)
 
 ### Delierable 5 (Formative User Study 2 - Functional Prototype)
 
-[Google Doc](https://docs.google.com/document/d/1BOqGMOEfmNuxONAq4EJUNLXJsEdPvfW6FLC58XkwPK0/edit?usp=sharing)
+[Document](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D5/UserStudyResultsforWorkingPrototype.pdf)
 
 [Youtube Video](https://www.youtube.com/watch?v=vpc6PAbjPCE&feature=youtu.be)
 
-[Change Log](https://docs.google.com/document/d/1nM5Jnp4wvHg19K2eCLouy3HUFpQ7Jray0x58PhVhsKA/edit)
-
 ### Delierable 6 (Functional Prototype 2)
 
-[Google Doc](https://docs.google.com/document/d/12KW2IS8TZy4njoBXavYcIQaC-xo6jfEVTMO9JBeyv3E/edit?usp=sharing)
+[Document](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D6/TumbleRumbleCodeDocumentation.pdf)
 
-[Change Log](https://docs.google.com/document/d/1XBmtChtlaFlTrf0oh8oUoMkRTcpsCVXvP4m8ttbrJHc/edit?usp=sharing)
+[Change Log](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D6/D6ChangeLog.pdf)
 
 ### Delierable 7 (Video)
 
@@ -77,10 +75,8 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 ### Delierable 8 (Final Presentation)
 
-[Google Slide](https://docs.google.com/presentation/d/1vwDQoX-c8YCCEkGBzn-XlTL7a3Kjf26EGI9-MyvSuDk/edit?usp=sharing)
+[Google Slide](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D8/TumbleRumble.pptx)
 
 ### Delierable 9 (Final Report)
 
-[Google Doc](https://docs.google.com/a/tamu.edu/document/d/1LvAGXq8pYgJZrUn9zLkoohXg_Ifd3_8PjPFuv-mEbF0/edit?usp=sharing)
-
-[PDF Version Copy](https://github.tamu.edu/cory-avra/315-game-ComputersAreHard/blob/master/FinalReport.pdf)
+[Document](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D9/FinalReport.pdf)
