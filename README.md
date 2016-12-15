@@ -75,7 +75,7 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 ### Delierable 8 (Final Presentation)
 
-[Google Slide](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D8/TumbleRumble.pptx)
+[PowerPoint](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D8/TumbleRumble.pptx)
 
 ### Delierable 9 (Final Report)
 
