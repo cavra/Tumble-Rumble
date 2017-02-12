@@ -45,38 +45,38 @@ From here, use localhost:13310 to connect. If you are running the game on one of
 
 [Change Log](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D2/D2ChangeLog.pdf)
 
-### Delierable 3 (Functional Specification)
+### Deliverable 3 (Functional Specification)
 
 [Document](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D3/FunctionalSpecification.pdf)
 
 [Change Log](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D3/D3ChangeLog.pdf)
 
-### Delierable 4 (Functional Prototype 1)
+### Deliverable 4 (Functional Prototype 1)
 
 [Document](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D4/TumbleRumbleCodeDocumentation.pdf)
 
 [Change Log](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D4/D4ChangeLog.pdf)
 
-### Delierable 5 (Formative User Study 2 - Functional Prototype)
+### Deliverable 5 (Formative User Study 2 - Functional Prototype)
 
 [Document](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D5/UserStudyResultsforWorkingPrototype.pdf)
 
 [Youtube Video](https://www.youtube.com/watch?v=vpc6PAbjPCE&feature=youtu.be)
 
-### Delierable 6 (Functional Prototype 2)
+### Deliverable 6 (Functional Prototype 2)
 
 [Document](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D6/TumbleRumbleCodeDocumentation.pdf)
 
 [Change Log](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D6/D6ChangeLog.pdf)
 
-### Delierable 7 (Video)
+### Deliverable 7 (Video)
 
 [Youtube Video](https://www.youtube.com/watch?v=VmPG7nvZvMs&feature=youtu.be)
 
-### Delierable 8 (Final Presentation)
+### Deliverable 8 (Final Presentation)
 
 [PowerPoint](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D8/TumbleRumble.pptx)
 
-### Delierable 9 (Final Report)
+### Deliverable 9 (Final Report)
 
 [Document](https://github.com/cavra/Tumble-Rumble/blob/master/documentation/D9/FinalReport.pdf)
